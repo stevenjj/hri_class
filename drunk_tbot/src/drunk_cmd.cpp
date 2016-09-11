@@ -122,9 +122,13 @@ void TurtleCmdNode::update_task(){
   }else if(current_task == 1){
     change_pen(255, 0, 0, 3, 0);
     set_goal(9,1);
-    current_task = -1;
   }else if(current_task == 2){
-
+    change_pen(0, 0, 255, 3, 0);
+    set_goal(9,9);
+  }else if(current_task == 3){
+    change_pen(0, 255, 0, 3, 0);
+    set_goal(1,1);
+    current_task = -1;    
   }else{
     ROS_INFO("Finished all tasks");
 
