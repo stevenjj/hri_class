@@ -39,6 +39,25 @@ void TurtleCmdNode::set_goal(float goal_x, float goal_y){
                            (goal_x - current_pose.x) );
 
   update_state(STATE_TURN_TO_GOAL);
+//  update_state(STATE_MOVE_TO_GOAL);  
+}
+
+float TurtleCmdNode::calculate_linear_error(){
+      // Calculate errors
+      float error_x = (goal_pose.x - current_pose.x);
+      float error_y = (goal_pose.y - current_pose.y);
+      float error_mag = sqrt( pow(error_x,2) + pow(error_y, 2) );
+
+      float goal_dir_x = cos(goal_pose.theta);
+      float goal_dir_y = sin(goal_pose.theta);  
+      
+      // Dot product of heading and e_pos = [dx, dy]^T
+      float error_sign = sign((goal_dir_x*error_x) + (goal_dir_y*error_y)); 
+      return error_mag*error_sign;
+}
+
+float TurtleCmdNode::calculate_heading_error(){
+
 }
 
 geometry_msgs::Twist TurtleCmdNode::get_cmd(const turtlesim::PoseConstPtr& msg){
@@ -47,6 +66,7 @@ geometry_msgs::Twist TurtleCmdNode::get_cmd(const turtlesim::PoseConstPtr& msg){
   float linear_command = 0;
   float heading_command = 0;  
 
+  ROS_INFO("STATE %i", current_state);
   // Calculate Command
   // STATE: Turn to Goal
   if (current_state == STATE_TURN_TO_GOAL){
@@ -61,31 +81,40 @@ geometry_msgs::Twist TurtleCmdNode::get_cmd(const turtlesim::PoseConstPtr& msg){
 
   // STATE: MOVE STRAIGHT
   }else if(current_state == STATE_MOVE_STRAIGHT){
-      // Calculate errors
-      float error_x = (goal_pose.x - current_pose.x);
-      float error_y = (goal_pose.y - current_pose.y);
-      float error_mag = sqrt( pow(error_x,2) + pow(error_y, 2) );
-
-      float goal_dir_x = cos(goal_pose.theta);
-      float goal_dir_y = sin(goal_pose.theta);  
-      
-      // Dot product of heading and e_pos = [dx, dy]^T
-      float error_sign = sign((goal_dir_x*error_x) + (goal_dir_y*error_y)); 
-      error_cum += (error_sign*error_mag);      
-
+      float linear_error = calculate_linear_error();
+      error_cum += linear_error;      
       // Calculate Control Command
-      linear_command = kp_lin*error_sign*error_mag - kd_lin*current_pose.linear_velocity + ki_lin*error_cum;
-
+      linear_command = kp_lin*linear_error - kd_lin*current_pose.linear_velocity + ki_lin*error_cum;
+      
+      heading_command += (10*cos(internal_time));
+      internal_time += internal_dt;     
       //ROS_INFO("goal_x: %f, current_x: %f, goal_y: %f, current_y: %f", goal_pose.x, current_pose.x, goal_pose.y, current_pose.y);
-      ROS_INFO("mag: %f", error_mag);
-
-      if (error_mag < 0.12){
+      ROS_INFO("mag: %f", linear_error);
+      if (fabs(linear_error) < 1.1){
         error_cum = 0;
+        internal_time = 0;
         update_state(STATE_IDLE);
       }
-
+  // STATE: MOVE TO GOAL
+  }else if(current_state == STATE_MOVE_TO_GOAL){
+      ROS_INFO("Hello?");
+      goal_pose.theta = atan2( (goal_pose.x - current_pose.y), 
+                           (goal_pose.y - current_pose.x) );
+      
+      float heading_error = goal_pose.theta - current_pose.theta;
+      float linear_error = calculate_linear_error();
+      error_cum += linear_error;      
+      // Calculate Control Command
+      linear_command = kp_lin*linear_error;// - kd_lin*current_pose.linear_velocity + ki_lin*error_cum;      
+      heading_command = kp_head*heading_error;// + (double)(rand() % 10 +1)/4.0;
+      ROS_INFO("mag: %f", linear_error);
+      if (fabs(linear_error) < 0.25){
+        error_cum = 0;
+        update_state(STATE_IDLE);
+      }      
+  }
   // STATE: IDLE    
-  }else{
+  else{
     ROS_INFO("IDLE");
     linear_command = 0;
     heading_command = 0;    
@@ -104,7 +133,8 @@ void TurtleCmdNode::cmd_callback(const turtlesim::PoseConstPtr& msg){
   update_current_pose(msg);
 
   // Main State Machine Logic
-  if ((current_state == STATE_TURN_TO_GOAL) || (current_state == STATE_MOVE_STRAIGHT)){
+  if ((current_state == STATE_TURN_TO_GOAL) || (current_state == STATE_MOVE_STRAIGHT) ||
+       (current_state == STATE_MOVE_TO_GOAL)){
     cmd_pub.publish( get_cmd(msg) );    
   }else if(current_state == STATE_IDLE){
     do_next_task();
@@ -135,7 +165,6 @@ void TurtleCmdNode::update_task(){
   }
 
 }
-
 
 
 int main(int argc, char **argv)

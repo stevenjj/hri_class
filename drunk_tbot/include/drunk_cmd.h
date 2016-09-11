@@ -28,6 +28,8 @@ public:
   turtlesim::SetPen pen_srv;
 
   // Robot States
+  float internal_time;
+  float internal_dt;
   std::vector<int> states;
   turtlesim::Pose current_pose;
   turtlesim::Pose goal_pose;
@@ -59,6 +61,10 @@ public:
 
   geometry_msgs::Twist get_cmd(const turtlesim::PoseConstPtr& msg);
 
+
+  float calculate_linear_error();
+  float calculate_heading_error();  
+
   float max_linear_command(float linear_command);
   float max_heading_command(float heading_command);  
 
@@ -67,8 +73,10 @@ public:
   ~TurtleCmdNode();  
 };
 
-TurtleCmdNode::TurtleCmdNode(): kp_head(2), ki_head(0.01), kp_lin(2), kd_lin(0.05), ki_lin(0.0), error_cum(0),
-                                current_task(-1), MAX_LINEAR_VEL(10), MAX_ANGULAR_VEL(3) {
+TurtleCmdNode::TurtleCmdNode(): kp_head(8), ki_head(0.01), kp_lin(1), kd_lin(0.05), ki_lin(0), error_cum(0),
+                                current_task(-1), MAX_LINEAR_VEL(5), MAX_ANGULAR_VEL(10) {
+  internal_time = 0.0;
+  internal_dt = 0.5;
   states.push_back(STATE_IDLE);
   states.push_back(STATE_MOVE_STRAIGHT);
   states.push_back(STATE_TURN_TO_GOAL);
