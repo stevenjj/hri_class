@@ -74,7 +74,7 @@ geometry_msgs::Twist TurtleCmdNode::get_cmd(const turtlesim::PoseConstPtr& msg){
     ROS_INFO("heading_error: %f", heading_error);
     if (fabs(heading_error) < 0.01){
       heading_command = 0;
-      update_state(STATE_MOVE_STRAIGHT);
+      update_state(STATE_MOVE_TO_GOAL);
     }else{
       heading_command = kp_head*heading_error;
     }
@@ -85,30 +85,39 @@ geometry_msgs::Twist TurtleCmdNode::get_cmd(const turtlesim::PoseConstPtr& msg){
       error_cum += linear_error;      
       // Calculate Control Command
       linear_command = kp_lin*linear_error - kd_lin*current_pose.linear_velocity + ki_lin*error_cum;
-      
-      heading_command += (10*cos(internal_time));
-      internal_time += internal_dt;     
       //ROS_INFO("goal_x: %f, current_x: %f, goal_y: %f, current_y: %f", goal_pose.x, current_pose.x, goal_pose.y, current_pose.y);
       ROS_INFO("mag: %f", linear_error);
-      if (fabs(linear_error) < 1.1){
+      if (fabs(linear_error) < 0.1){
         error_cum = 0;
         internal_time = 0;
         update_state(STATE_IDLE);
       }
   // STATE: MOVE TO GOAL
   }else if(current_state == STATE_MOVE_TO_GOAL){
+
       ROS_INFO("Hello?");
-      goal_pose.theta = atan2( (goal_pose.x - current_pose.y), 
-                           (goal_pose.y - current_pose.x) );
+      goal_pose.theta = atan2( (goal_pose.y - current_pose.y), 
+                           (goal_pose.x - current_pose.x) );
       
       float heading_error = goal_pose.theta - current_pose.theta;
       float linear_error = calculate_linear_error();
+
+      if (start_motion == false){
+        start_motion = true;
+        init_error_dist = linear_error;
+      }
+
       error_cum += linear_error;      
       // Calculate Control Command
       linear_command = kp_lin*linear_error;// - kd_lin*current_pose.linear_velocity + ki_lin*error_cum;      
       heading_command = kp_head*heading_error;// + (double)(rand() % 10 +1)/4.0;
+
+      heading_command += ( 0.5*sin(PI/init_error_dist)*linear_error);
+      //internal_time += internal_dt;     
+
       ROS_INFO("mag: %f", linear_error);
-      if (fabs(linear_error) < 0.25){
+      if (fabs(linear_error) < 0.15){
+        internal_time = 0;
         error_cum = 0;
         update_state(STATE_IDLE);
       }      
