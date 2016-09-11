@@ -1,35 +1,98 @@
 #include "drunk_cmd.h"
 
-TurtleCmdNode::TurtleCmdNode(): kp(10), ki(1), error_cum(0) {
-  states.push_back("idle");
-  states.push_back("turn_to_goal");
-  states.push_back("move_straight");
-} //Initialize gains and states 
+// State machine:
+//  turn to goal -> move_straight -> idle
 
-TurtleCmdNode::~TurtleCmdNode(){} // standard destructor
+float rad_2_deg(float rads){
+  return (180.0/PI)*rads;
+}
+
+float deg_2_rad(float degs){
+  return (PI/180.0)*degs;
+}
+
+void TurtleCmdNode::update_current_pose(const turtlesim::PoseConstPtr& msg){
+    current_pose = *msg;
+    //ROS_INFO("current: x [%f]", msg->x);
+}
+void TurtleCmdNode::change_pen(int r, int g, int b, int width, int off){
+  pen_srv.request.r = r;
+  pen_srv.request.g = g;
+  pen_srv.request.b = b;
+  pen_srv.request.width = r;
+  pen_srv.request.off = off;
+
+  if (pencolor_client.call(pen_srv))
+  {
+    ROS_INFO("Color Change");
+  }
+}
+void TurtleCmdNode::set_goal(float goal_x, float goal_y, float goal_theta_deg){
+  goal_pose.x = goal_x;
+  goal_pose.x = goal_y;  
+  goal_pose.theta = deg_2_rad(goal_theta_deg);
+  current_state = STATE_TURN_TO_GOAL;
+}
 
 geometry_msgs::Twist TurtleCmdNode::get_cmd(const turtlesim::PoseConstPtr& msg){
   geometry_msgs::Twist vel_msg;
-//  vel_msg.linear.y = 0; vel_msg.linear.z =0; vel_msg.angular.x = 0; vel_msg.angular.y = 0;
-  vel_msg.linear.x = -(double)(rand() % 10 +1)/4.0;
-  vel_msg.angular.z = 1.0;  
+//  vel_msg.linear.y = 0; vel_msg.linear.z =0; vel_msg.angular.x = 0; vel_msg.angular.y = 0; 
+  float linear_command = 0;
+  float heading_command = 0;  
+
+  // Calculate Command
+  // STATE: Turn to Goal
+  if (current_state == STATE_TURN_TO_GOAL){
+    float heading_error = goal_pose.theta - current_pose.theta;
+    if (fabs(heading_error) < 0.05){
+      heading_command = 0;
+    }else{
+      heading_command = kp*heading_error;
+    }
+
+  // STATE: MOVE STRAIGHT
+  }else if(current_state == STATE_MOVE_STRAIGHT){
+    vel_msg.angular.z = 0;
+
+  // STATE: MUST BE IDLE    
+  }else{
+    linear_command = 0;
+    heading_command = 0;    
+  }
+
+
+  // Finalize command
+  vel_msg.linear.x = linear_command;//(double)(rand() % 10 +1)/4.0;
+  vel_msg.angular.z = heading_command; 
   ROS_INFO("linear x: %f, angular z: %f", vel_msg.linear.x, vel_msg.angular.z);
   return vel_msg;
 }
 
 
-/*void TurtleCmdNode::task_manager*/
-
-
 void TurtleCmdNode::cmd_callback(const turtlesim::PoseConstPtr& msg){
-  //ROS_INFO("I heard: x [%f]", msg->x);
-  change_pen(0, 255, 0, 0.01, 0);
+  // Update state here
+  update_current_pose(msg);
+
+
+  update_task();
+
+  ROS_INFO("current_state: %i", states[0]);
   cmd_pub.publish( get_cmd(msg) );
-
-  ROS_INFO("current_state: %s", states[0].c_str());
-
 }
 
+void TurtleCmdNode::update_task(){
+  if (current_task == 0){
+    change_pen(0, 255, 0, 0.01, 0);
+    set_goal(current_pose.x, current_pose.y, 0);
+  }else if(current_task == 1){
+
+  }else if(current_task == 2){
+
+  }else{
+
+  }
+
+}
 /*
 // States:
 //    In Motion
@@ -37,7 +100,21 @@ void TurtleCmdNode::cmd_callback(const turtlesim::PoseConstPtr& msg){
 //      turn x degrees
 //    Idle
 
-// goals:
+goal_x = ;
+goal_y = ;
+goal_heading = ;
+heading_goal;
+if state is in motion = [move or turn]:
+  if state is move forward:
+    continue moving forward
+  elif state is turn heading:
+    continue turning
+elif state is idle:
+  move_to_next_task
+  set_new_goals and change goal_x, goal_y, goal_heading
+  change pen color
+
+// Tasks:
 // Draw U
 // Move to starting position
 // Draw T
@@ -59,18 +136,6 @@ vel = error*kp
 
 */
 
-void TurtleCmdNode::change_pen(int r, int g, int b, int width, int off){
-  pen_srv.request.r = r;
-  pen_srv.request.g = g;
-  pen_srv.request.b = b;
-  pen_srv.request.width = r;
-  pen_srv.request.off = off;
-
-  if (pencolor_client.call(pen_srv))
-  {
-    ROS_INFO("Color Change");
-  }
-}
 
 
 
