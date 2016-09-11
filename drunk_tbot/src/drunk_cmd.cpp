@@ -1,52 +1,33 @@
-#include "ros/ros.h"
-#include "geometry_msgs/Twist.h"
-#include "turtlesim/Color.h"
-#include "turtlesim/Pose.h"
+#include "drunk_cmd.h"
 
-#include "turtlesim/SetPen.h"
+TurtleCmdNode::TurtleCmdNode(): kp(10), ki(1), error_cum(0) {
+  states.push_back("idle");
+  states.push_back("turn_to_goal");
+  states.push_back("move_straight");
+} //Initialize gains and states 
 
-class TurtleCmdNode{
-public:
-  ros::NodeHandle node;
-  ros::Subscriber pose_sub;
-  ros::Publisher  cmd_pub;   
-  ros::ServiceClient pencolor_client;
-
-  turtlesim::SetPen pen_srv;
-
-  void cmd_callback(const turtlesim::PoseConstPtr& msg);
-  void change_pen_color(int r, int g, int b, int width, int off);
-
-  geometry_msgs::Twist get_cmd(const turtlesim::PoseConstPtr& msg);
-
-  TurtleCmdNode();
-  ~TurtleCmdNode();  
-};
-
-TurtleCmdNode::TurtleCmdNode(){} // empty constructor
 TurtleCmdNode::~TurtleCmdNode(){} // standard destructor
-
 
 geometry_msgs::Twist TurtleCmdNode::get_cmd(const turtlesim::PoseConstPtr& msg){
   geometry_msgs::Twist vel_msg;
 //  vel_msg.linear.y = 0; vel_msg.linear.z =0; vel_msg.angular.x = 0; vel_msg.angular.y = 0;
-  vel_msg.linear.x =    -(double)(rand() % 10 +1)/4.0;
+  vel_msg.linear.x = -(double)(rand() % 10 +1)/4.0;
   vel_msg.angular.z = 1.0;  
   ROS_INFO("linear x: %f, angular z: %f", vel_msg.linear.x, vel_msg.angular.z);
   return vel_msg;
 }
 
-void TurtleCmdNode::change_pen_color(int r, int g, int b, int width, int off){
-  pen_srv.request.r = r;
-  pen_srv.request.g = g;
-  pen_srv.request.b = b;
-  pen_srv.request.width = r;
-  pen_srv.request.off = off;
 
-  if (pencolor_client.call(pen_srv))
-  {
-    ROS_INFO("Color Change");
-  }
+/*void TurtleCmdNode::task_manager*/
+
+
+void TurtleCmdNode::cmd_callback(const turtlesim::PoseConstPtr& msg){
+  //ROS_INFO("I heard: x [%f]", msg->x);
+  change_pen(0, 255, 0, 0.01, 0);
+  cmd_pub.publish( get_cmd(msg) );
+
+  ROS_INFO("current_state: %s", states[0].c_str());
+
 }
 
 /*
@@ -70,18 +51,27 @@ calculate delta_x:
 heading: x_hat = cos(th)*i + sin(th)*j
 x_goal = x_hat*number of steps
 
-error = (x_goal - x_start)
+error = ||x_goal - x_start||_2 *  sign(heading_dir dot ||x_goal-x_start||_2
 
-vel = 
+vel = error*kp
 
 
 
 */
-void TurtleCmdNode::cmd_callback(const turtlesim::PoseConstPtr& msg){
-  //ROS_INFO("I heard: x [%f]", msg->x);
-  change_pen_color(0, 255, 0, 0.01, 0);
-  cmd_pub.publish( get_cmd(msg) );
+
+void TurtleCmdNode::change_pen(int r, int g, int b, int width, int off){
+  pen_srv.request.r = r;
+  pen_srv.request.g = g;
+  pen_srv.request.b = b;
+  pen_srv.request.width = r;
+  pen_srv.request.off = off;
+
+  if (pencolor_client.call(pen_srv))
+  {
+    ROS_INFO("Color Change");
+  }
 }
+
 
 
 int main(int argc, char **argv)
