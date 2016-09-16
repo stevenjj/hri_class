@@ -1,0 +1,1 @@
+rosparam set background_r 255 && rosparam set background_g 255 && rosparam set background_b 255 && rosservice call reset
