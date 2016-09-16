@@ -39,7 +39,7 @@ void TurtleCmdNode::set_goal(float goal_x, float goal_y){
                            (goal_x - current_pose.x) );
 
   update_state(STATE_TURN_TO_GOAL);
-//  update_state(STATE_MOVE_TO_GOAL);  
+
 }
 
 float TurtleCmdNode::calculate_linear_error(){
@@ -72,9 +72,13 @@ geometry_msgs::Twist TurtleCmdNode::get_cmd(const turtlesim::PoseConstPtr& msg){
   if (current_state == STATE_TURN_TO_GOAL){
     float heading_error = goal_pose.theta - current_pose.theta;
     ROS_INFO("heading_error: %f", heading_error);
-    if (fabs(heading_error) < 0.01){
+    if (fabs(heading_error) < 0.001){
       heading_command = 0;
-      update_state(STATE_MOVE_TO_GOAL);
+      if (drunk_motion == true){
+        update_state(STATE_MOVE_TO_GOAL);
+      }else{
+        update_state(STATE_MOVE_STRAIGHT);      
+      }
     }else{
       heading_command = kp_head*heading_error;
     }
@@ -85,22 +89,22 @@ geometry_msgs::Twist TurtleCmdNode::get_cmd(const turtlesim::PoseConstPtr& msg){
       error_cum += linear_error;      
       // Calculate Control Command
       linear_command = kp_lin*linear_error - kd_lin*current_pose.linear_velocity + ki_lin*error_cum;
-      //ROS_INFO("goal_x: %f, current_x: %f, goal_y: %f, current_y: %f", goal_pose.x, current_pose.x, goal_pose.y, current_pose.y);
+
       ROS_INFO("mag: %f", linear_error);
-      if (fabs(linear_error) < 0.1){
+      if (fabs(linear_error) < 0.25){
+      //if (fabs(linear_error) < 0.02){
         error_cum = 0;
         internal_time = 0;
         update_state(STATE_IDLE);
       }
+
   // STATE: MOVE TO GOAL
   }else if(current_state == STATE_MOVE_TO_GOAL){
-
-      ROS_INFO("Hello?");
-      goal_pose.theta = atan2( (goal_pose.y - current_pose.y), 
-                           (goal_pose.x - current_pose.x) );
       
       float heading_error = goal_pose.theta - current_pose.theta;
       float linear_error = calculate_linear_error();
+
+      ROS_INFO("heading error: %f", heading_error);
 
       if (start_motion == false){
         start_motion = true;
@@ -112,15 +116,19 @@ geometry_msgs::Twist TurtleCmdNode::get_cmd(const turtlesim::PoseConstPtr& msg){
       linear_command = kp_lin*linear_error;// - kd_lin*current_pose.linear_velocity + ki_lin*error_cum;      
       heading_command = kp_head*heading_error;// + (double)(rand() % 10 +1)/4.0;
 
-      heading_command += ( 0.5*sin(PI/init_error_dist)*linear_error);
-      //internal_time += internal_dt;     
+      float b = 5; float a = -5;
+      float random_num = 1 + (b-a) * ((double)(rand() % 100) / 100.0) + a;
+      heading_command += ( (10+random_num)  *cos(25*internal_time));
+
+//      heading_command += ( 0.5*sin(100*PI/init_error_dist)*linear_error);
+      internal_time += internal_dt;     
 
       ROS_INFO("mag: %f", linear_error);
-      if (fabs(linear_error) < 0.15){
+      if (fabs(linear_error) < 0.25){
         internal_time = 0;
         error_cum = 0;
         update_state(STATE_IDLE);
-      }      
+      }
   }
   // STATE: IDLE    
   else{
@@ -153,21 +161,113 @@ void TurtleCmdNode::cmd_callback(const turtlesim::PoseConstPtr& msg){
 }
 
 void TurtleCmdNode::update_task(){
+  // Orange: R: 255 G:162  B:0
+
   if (current_task == 0){
     current_task_description = "Go to starting position";
-    change_pen(0, 255, 0, 3, 0);
-    set_goal(1, 9);
-//    set_goal(current_pose.x, current_pose.y, 0);
+    change_pen(255, 162, 0, 5, 1);
+    set_goal(init_x, init_y);
+
+  // DRAW U
   }else if(current_task == 1){
-    change_pen(255, 0, 0, 3, 0);
-    set_goal(9,1);
+    change_pen(255, 162, 0, 5, 0);
+    set_goal(current_pose.x, current_pose.y - step_size);
   }else if(current_task == 2){
-    change_pen(0, 0, 255, 3, 0);
-    set_goal(9,9);
+    set_goal(current_pose.x + step_size, current_pose.y);
   }else if(current_task == 3){
-    change_pen(0, 255, 0, 3, 0);
-    set_goal(1,1);
-    current_task = -1;    
+    set_goal(current_pose.x, current_pose.y + step_size); 
+
+  // Go to next letter   
+  }else if(current_task == 4){
+    change_pen(255, 162, 0, 5, 1);    
+    set_goal(current_pose.x + step_size/4, current_pose.y);
+
+  // Draw T
+  }else if(current_task == 5){
+    change_pen(255, 162, 0, 5, 0);
+    set_goal(current_pose.x + step_size, current_pose.y);
+  }else if(current_task == 6){
+    change_pen(255, 162, 0, 5, 1);        
+    set_goal(current_pose.x - step_size/2, current_pose.y);
+  }else if(current_task == 7){
+    change_pen(255, 162, 0, 5, 0);        
+    set_goal(current_pose.x, current_pose.y - step_size);
+
+  // Next Letter
+  }else if(current_task == 8){
+    change_pen(255, 162, 0, 5, 1);        
+    set_goal(current_pose.x, current_pose.y - step_size/4);
+
+  // Draw h
+  }else if(current_task == 9){
+    change_pen(0, 0, 0, 5, 0);        
+    set_goal(current_pose.x, current_pose.y - step_size);    
+  }else if(current_task == 10){
+    change_pen(0, 0, 0, 5, 0);        
+    set_goal(current_pose.x, current_pose.y + step_size/2);
+  }else if(current_task == 11){
+    change_pen(0, 0, 0, 5, 0);        
+    set_goal(current_pose.x + step_size/2, current_pose.y);
+  }else if(current_task == 12){
+    change_pen(0, 0, 0, 5, 0);        
+    set_goal(current_pose.x, current_pose.y- step_size/2 );
+
+  // Next Letter  
+  }else if(current_task == 13){
+    change_pen(0, 0, 0, 5, 1);        
+    set_goal(current_pose.x + step_size/4, current_pose.y);
+
+  //Draw r
+  }else if(current_task == 14){
+    change_pen(0, 0, 0, 5, 0);        
+    set_goal(current_pose.x, current_pose.y + step_size/2);
+  }else if(current_task == 15){
+    change_pen(0, 0, 0, 5, 0);        
+    set_goal(current_pose.x + step_size/3, current_pose.y);  
+  }else if(current_task == 16){
+    change_pen(0, 0, 0, 5, 0);        
+    set_goal(current_pose.x, current_pose.y - step_size/6);
+
+  // Next Letter
+  }else if(current_task == 17){
+    change_pen(0, 0, 0, 5, 1);        
+    set_goal(current_pose.x, current_pose.y + step_size/6); 
+  }else if(current_task == 18){
+    change_pen(0, 0, 0, 5, 1);        
+    set_goal(current_pose.x + step_size/4, current_pose.y); 
+
+  // Draw i
+  }else if(current_task == 19){
+    change_pen(0, 0, 0, 5, 1);        
+    set_goal(current_pose.x, current_pose.y + 2*step_size/4);
+  }else if(current_task == 20){
+    change_pen(0, 0, 0, 5, 0);        
+    set_goal(current_pose.x, current_pose.y - step_size/4);
+  }else if(current_task == 21){
+    change_pen(0, 0, 0, 5, 1);        
+    set_goal(current_pose.x, current_pose.y - step_size/4);
+
+  }else if(current_task == 22){
+    change_pen(0, 0, 0, 5, 0);        
+    set_goal(current_pose.x, current_pose.y - step_size/2);
+  }else if(current_task == 23){
+    change_pen(0, 0, 0, 5, 0);        
+    set_goal(current_pose.x + step_size/6, current_pose.y);                                        
+
+  // Go to line position
+  }else if(current_task == 24){
+    change_pen(0, 0, 0, 5, 1);       
+    set_goal(current_pose.x + step_size, current_pose.y - step_size);
+  }else if(current_task == 25){
+    change_pen(50, 50, 50, 2, 0);        
+    set_goal(current_pose.x - 4*step_size, current_pose.y);
+  }else if(current_task == 26){
+    change_pen(50, 50, 50, 2, 0);        
+    set_goal(current_pose.x + 4*step_size, current_pose.y);
+  }else if(current_task == 27){
+    change_pen(50, 50, 50, 2, 0);        
+    set_goal(current_pose.x - 4*step_size, current_pose.y);
+    current_task = 25;
   }else{
     ROS_INFO("Finished all tasks");
 

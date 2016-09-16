@@ -47,7 +47,12 @@ public:
   float ki_lin;    
   float error_cum;
 
+  float init_x;
+  float init_y;
+  float step_size;
+
   bool start_motion;
+  bool drunk_motion;
   float init_error_dist;
 
   float MAX_LINEAR_VEL;
@@ -77,16 +82,19 @@ public:
   ~TurtleCmdNode();  
 };
 
-TurtleCmdNode::TurtleCmdNode(): kp_head(12), ki_head(0.01), kp_lin(1), kd_lin(0.05), ki_lin(0), error_cum(0),
-                                current_task(-1), MAX_LINEAR_VEL(5), MAX_ANGULAR_VEL(5) {
+TurtleCmdNode::TurtleCmdNode(): kp_head(12), ki_head(0.01), kp_lin(5), kd_lin(0.05), ki_lin(0), error_cum(0),
+                                current_task(-1), MAX_LINEAR_VEL(5), MAX_ANGULAR_VEL(10) {
   start_motion = false;
   internal_time = 0.0;
   internal_dt = 0.01;
+  drunk_motion = true;
   omega = 10;
   states.push_back(STATE_IDLE);
   states.push_back(STATE_MOVE_STRAIGHT);
   states.push_back(STATE_TURN_TO_GOAL);
   current_state = STATE_IDLE;
+
+  init_x = 1; init_y = 9; step_size = 2.5;
 
 } //Initialize gains and states 
 
