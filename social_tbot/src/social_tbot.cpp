@@ -8,7 +8,6 @@ int main(int argc, char **argv)
   turtle.cmd_pub = turtle.node.advertise<geometry_msgs::Twist>("/turtle1/cmd_vel", 1000);  
   turtle.pencolor_client = turtle.node.serviceClient<turtlesim::SetPen>("/turtle1/set_pen");
   ros::spin();*/
-  std::cout << "hello world" << std::endl;
 
   Cell c0(0);
   Cell c1(1);
@@ -20,9 +19,20 @@ int main(int argc, char **argv)
   c2.gCost = 10;
   c1.gCost = 100;
 
-  A_star As_obj;
+  int resolution = 100; // Number of cells per dimension
+  float x_min = 2; float y_min = 0; float x_max = 10; float y_max = 10;
 
-  // Test Cell objects as keys
+
+  A_star As_obj(resolution, x_min, x_max, y_min, y_max);
+  std::cout << As_obj.grid.size() << std::endl;
+
+
+  float num = 9.92;
+  std::cout << As_obj.x_location_to_map_index(num) << std::endl;
+  std::cout << As_obj.y_location_to_map_index(num) << std::endl;  
+
+
+/*  // Test Cell objects as keys
   As_obj.cameFrom[c0] = c1;
   std::cout << "x:" << As_obj.cameFrom[c0].x << " y:" << As_obj.cameFrom[c0].y << std::endl;
 
@@ -37,8 +47,7 @@ int main(int argc, char **argv)
 
   for(size_t i = 0; i < As_obj.open_set.size(); i++){
   	std::cout << "ID:" << As_obj.open_set[i].id << " Cost:" << As_obj.open_set[i].gCost << std::endl;
-  }
-
+  }*/
 
  return 0;
   
