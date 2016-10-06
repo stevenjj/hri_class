@@ -33,9 +33,14 @@ int main(int argc, char **argv)
   	std::cout << "    gridX:" << list_of_neighbors[i].grid_x_loc << " gridY:" << list_of_neighbors[i].grid_y_loc << " id:" << list_of_neighbors[i].id << std::endl;
   }
 */
-  float x_start = 5.1; float y_start = 5.1; float x_goal = 9; float y_goal = 9;
+  float x_start = 5; float y_start = 5; float x_goal = 9; float y_goal = 9;
 
-  As_obj.find_path(x_start, y_start, x_goal, y_goal);
+  std::vector<Cell> final_path = As_obj.find_path(x_start, y_start, x_goal, y_goal);
+  std::cout << "Length of path" << final_path.size() << std::endl;
+
+  for(size_t i=0; i < final_path.size() ; i++){
+  	std::cout << "    gridX:" << final_path[i].grid_x_loc << " gridY:" << final_path[i].grid_y_loc << std::endl;	
+  }
 
 /*  
   Cell c0(0);

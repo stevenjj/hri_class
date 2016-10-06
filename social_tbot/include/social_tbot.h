@@ -65,8 +65,10 @@ public:
 	void init_gfScores();
 	void init_start_goal_cells(const float &start_x, const float &start_y, 
 							   const float &goal_x, const float &goal_y);
-	int find_path(const float &start_x, const float &start_y, 
+	std::vector<Cell> find_path(const float &start_x, const float &start_y, 
 							   const float &goal_x, const float &goal_y);
+
+	std::vector<Cell> reconstruct_path(Cell goal_cell);
 
 
 	float heuristic_distance_cost(Cell c1_start, Cell c1_end);
@@ -79,6 +81,7 @@ public:
 	std::vector<Cell> neighbors(const Cell &cell_query);
 
 	Cell convert_xy_to_cell(const float &x, const float &y);
+
 
 
 	A_star();
@@ -346,7 +349,7 @@ void A_star::init_start_goal_cells(const float &start_x, const float &start_y,
 	goal_cell = convert_xy_to_cell(goal_x, goal_y);
 }
 
-int A_star::find_path(const float &start_x, const float &start_y, 
+std::vector<Cell> A_star::find_path(const float &start_x, const float &start_y, 
 			   				       const float &goal_x, const float &goal_y){
 	open_set.clear();	
 	cameFrom.clear();
@@ -383,7 +386,7 @@ int A_star::find_path(const float &start_x, const float &start_y,
 			std::cout << "    gridX:" << current.grid_x_loc << " gridY:" << current.grid_y_loc <<std::endl;			
 			std::cout << "    Cost:" << current.gCost<< std::endl;		
 			std::cout << grid[start_cell.grid_x_loc][start_cell.grid_y_loc].gCost << std::endl;
-			return 1;
+			return reconstruct_path(current);
 		}
 
 		open_set.erase(open_set.begin()); // Remove current
@@ -431,6 +434,9 @@ int A_star::find_path(const float &start_x, const float &start_y,
 
 
 	}
+	std::vector<Cell> failedPath;
+	failedPath.push_back(start_cell);
+	return failedPath;
 
 
 }
@@ -447,6 +453,30 @@ float A_star::dist_between(Cell c1_start, Cell c1_end){
 	return dist_cost;
 }
 
+
+std::vector<Cell> A_star::reconstruct_path(Cell goal_cell){
+	std::vector<Cell> total_path_reversed;
+	total_path_reversed.push_back(goal_cell);
+
+	std::map<Cell, Cell, Cell_Compare>::iterator it_map;
+	Cell current;
+
+	current = goal_cell;
+
+	it_map = cameFrom.find(current);
+	while (it_map != cameFrom.end()){
+		current = cameFrom[current];
+		total_path_reversed.push_back(current); 	
+		it_map = cameFrom.find(current);
+	}
+	
+	std::vector<Cell> total_path;
+	for(size_t i = 0; i < total_path_reversed.size() ; i++){
+		total_path.push_back(total_path_reversed[total_path_reversed.size() - 1 - i]);
+	}	
+	return total_path;
+
+}
 
 
 #endif
