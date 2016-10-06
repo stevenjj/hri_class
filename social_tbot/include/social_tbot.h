@@ -500,7 +500,12 @@ float A_star::social_cost(Cell cell_eval){
 
 	//std::cout <<"Cost: " << (x_cost + y_cost) << std::endl;
 
-	return  250	*(x_cost + y_cost);
+	float z = (cell_eval.x- mean_x)*(cell_eval.x- mean_x)/(sigma*sigma) + 
+			  (cell_eval.y- mean_y)*(cell_eval.y- mean_y)/(sigma*sigma);
+	float exp_term = z/2;
+	float bi_variate_cost = (1/sqrt(2*3.14159*sigma*sigma))*exp(-exp_term);
+
+	return  50 *	bi_variate_cost;
 }
 
 
