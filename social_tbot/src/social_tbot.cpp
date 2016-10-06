@@ -112,7 +112,7 @@ geometry_msgs::Twist TurtleCmdNode::get_cmd(const turtlesim::PoseConstPtr& msg){
       heading_command = kp_head*heading_error;// + (double)(rand() % 10 +1)/4.0;
 
       //ROS_INFO("mag: %f", linear_error);
-      if (fabs(linear_error) < 0.15){
+      if (fabs(linear_error) < 0.25){
         update_state(STATE_IDLE);
       }
   }
