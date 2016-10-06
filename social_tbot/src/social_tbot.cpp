@@ -33,7 +33,7 @@ int main(int argc, char **argv)
   	std::cout << "    gridX:" << list_of_neighbors[i].grid_x_loc << " gridY:" << list_of_neighbors[i].grid_y_loc << " id:" << list_of_neighbors[i].id << std::endl;
   }
 */
-  float x_start = 5; float y_start = 5; float x_goal = 9; float y_goal = 9;
+  float x_start = 5.1; float y_start = 5.1; float x_goal = 9; float y_goal = 9;
 
   As_obj.find_path(x_start, y_start, x_goal, y_goal);
 
