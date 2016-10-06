@@ -16,7 +16,7 @@ int main(int argc, char **argv)
   A_star As_obj(resolution, x_min, x_max, y_min, y_max);
   std::cout << As_obj.grid.size() << std::endl;
 
-
+/*
   float num = 9.92;
   std::cout << As_obj.x_location_to_map_index(num) << std::endl;
   std::cout << As_obj.y_location_to_map_index(num) << std::endl;  
@@ -32,6 +32,10 @@ int main(int argc, char **argv)
   for(size_t i = 0; i < list_of_neighbors.size(); i++){
   	std::cout << "    gridX:" << list_of_neighbors[i].grid_x_loc << " gridY:" << list_of_neighbors[i].grid_y_loc << " id:" << list_of_neighbors[i].id << std::endl;
   }
+*/
+  float x_start = 5; float y_start = 5; float x_goal = 9; float y_goal = 9;
+
+  As_obj.find_path(x_start, y_start, x_goal, y_goal);
 
 /*  
   Cell c0(0);

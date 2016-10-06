@@ -59,8 +59,19 @@ public:
 	float dx;
 	float dy;
 
+	Cell start_cell;
+	Cell goal_cell;	
+
 	void init_gfScores();
-	void findPath(const Cell &start, const Cell &goal);
+	void init_start_goal_cells(const float &start_x, const float &start_y, 
+							   const float &goal_x, const float &goal_y);
+	int find_path(const float &start_x, const float &start_y, 
+							   const float &goal_x, const float &goal_y);
+
+
+	float heuristic_distance_cost(Cell c1_start, Cell c1_end);
+	float dist_between(Cell c1_start, Cell c1_end);
+	float social_cost(Cell cell_eval);	
 
 	void sort_open_set();
 	int x_location_to_map_index(const float &query_in);
@@ -132,7 +143,7 @@ void A_star::init_gfScores(){
 	fScore.clear();
 	int total_cells = grid.size() * grid[0].size();
 
-	std::cout << total_cells << std::endl;
+	//std::cout << total_cells << std::endl;
 
 	typedef std::map<int, std::map< int, Cell> >::iterator it_x;	
 	typedef std::map<int, Cell>::iterator it_y;
@@ -199,6 +210,7 @@ bool operator== ( const Cell &c1, const Cell &c2)
 }
 
 std::vector<Cell> A_star::neighbors(const Cell &cell_query){
+	// Performs a simple neighbor search since the grid is 2D and everything is reachable
 	std::vector<Cell> current_neighbors;
 	std::vector<Cell>::iterator it_cell;
 
@@ -300,6 +312,12 @@ std::vector<Cell> A_star::neighbors(const Cell &cell_query){
 		}
 
 
+/*	std::cout << "Neighbors of (" << current_x << "," << current_y << ")" << std::endl;
+	  for(size_t i = 0; i < current_neighbors.size(); i++){
+	  	std::cout << "    gridX:" << current_neighbors[i].grid_x_loc << " gridY:" << current_neighbors[i].grid_y_loc << " id:" << current_neighbors[i].id << std::endl;
+	  }				*/
+
+
 	return current_neighbors;
 }
 
@@ -308,5 +326,92 @@ Cell A_star::convert_xy_to_cell(const float &x, const float &y){
 	int index_y = y_location_to_map_index(y);	
 	return grid[index_x][index_y];
 }
+
+void A_star::init_start_goal_cells(const float &start_x, const float &start_y, 
+			   				       const float &goal_x, const float &goal_y){
+	start_cell = convert_xy_to_cell(start_x, start_y);
+	goal_cell = convert_xy_to_cell(goal_x, goal_y);
+}
+
+int A_star::find_path(const float &start_x, const float &start_y, 
+			   				       const float &goal_x, const float &goal_y){
+	open_set.clear();	
+	cameFrom.clear();
+	gScore.clear();
+	fScore.clear();
+	closed_set.clear(); 
+
+	// Start A* search
+	init_start_goal_cells(start_x, start_y, goal_x, goal_y);
+	init_gfScores();
+
+	
+	gScore[start_cell] = 0;
+	fScore[start_cell] = heuristic_distance_cost(start_cell, goal_cell);
+		start_cell.gCost = fScore[start_cell];
+		grid[start_cell.grid_x_loc][start_cell.grid_y_loc] = fScore[start_cell];
+
+	open_set.push_back(start_cell);
+
+	while (open_set.size() > 0){
+		sort_open_set();
+		Cell current = open_set[0]; // Lowest fScore
+		if (current == goal_cell){
+			std::cout << "Found goal" << std::endl;
+			return 1;
+		}
+		open_set.erase(open_set.begin()); // Remove current
+		closed_set.push_back(current); // Add current to explored states
+
+		// for each neighbor of current
+		std::vector<Cell> list_of_neighbors = neighbors(current);
+
+		std::cout << "Neighbors of (" << current.x << "," << current.y << ")" << std::endl;
+		for(size_t i = 0; i < list_of_neighbors.size(); i++){
+			std::cout << "    gridX:" << list_of_neighbors[i].grid_x_loc << " gridY:" << list_of_neighbors[i].grid_y_loc << " id:" << list_of_neighbors[i].id << std::endl;
+
+			Cell neighbor = list_of_neighbors[i];
+			// if neighbor in closedSet:
+			std::vector<Cell>::iterator it_cell;
+			it_cell = std::find(closed_set.begin(), closed_set.end(), neighbor);
+			if (it_cell != closed_set.end()) {
+				continue; // ignore since it's already evaluated
+			}			
+            // The distance from start to a neighbor
+            float tentative_gScore = gScore[current] + dist_between(current, neighbor); //+ othercost
+
+			// if neighbor not in openSet:
+			it_cell = std::find(open_set.begin(), open_set.end(), neighbor);
+			if (it_cell == open_set.end()) {
+				// Record this path
+	            cameFrom[neighbor] = current;
+	            gScore[neighbor] = tentative_gScore;
+	            fScore[neighbor] = gScore[neighbor] + heuristic_distance_cost(neighbor, goal_cell);
+	            neighbor.gCost = fScore[neighbor];
+				open_set.push_back(neighbor); // Discover new node			
+			}else if(tentative_gScore >= gScore[neighbor]){
+				continue; // This is not a better path
+
+			}			
+		}	
+
+
+	}
+
+}
+
+float A_star::heuristic_distance_cost(Cell c1_start, Cell c1_end){
+	float h_dcost =  sqrt(pow((c1_start.x - c1_end.x),2) + pow((c1_start.y - c1_end.y),2));
+	std::cout << "Distance:" << h_dcost << std::endl;
+	return h_dcost;
+}
+
+float A_star::dist_between(Cell c1_start, Cell c1_end){
+	float dist_cost =  sqrt(pow((c1_start.x - c1_end.x),2) + pow((c1_start.y - c1_end.y),2));
+	std::cout << "Dist_between cost:" << dist_cost << std::endl;
+	return dist_cost;
+}
+
+
 
 #endif
