@@ -59,6 +59,10 @@ public:
 	float dx;
 	float dy;
 
+
+	float turtle_2x;
+	float turtle_2y;
+
 	Cell start_cell;
 	Cell goal_cell;	
 
@@ -229,9 +233,9 @@ std::vector<Cell> A_star::neighbors(const Cell &cell_query){
 	std::vector<Cell> current_neighbors;
 	std::vector<Cell>::iterator it_cell;
 
-	std::cout << "Expanding " ;
+/*	std::cout << "Expanding " ;
   	std::cout << cell_query.grid_x_loc << "," << cell_query.grid_y_loc << std::endl;  	
-
+*/
 	//This has 8 neighbors
 	float current_x = cell_query.x;
 	float current_y = cell_query.y;
@@ -384,7 +388,7 @@ std::vector<Cell> A_star::find_path(const float &start_x, const float &start_y,
 		if (current == goal_cell){
 			std::cout << "Found goal" << std::endl;
 			std::cout << "    gridX:" << current.grid_x_loc << " gridY:" << current.grid_y_loc <<std::endl;			
-			std::cout << "    Cost:" << current.gCost<< std::endl;		
+			//std::cout << "    Cost:" << current.gCost<< std::endl;		
 			std::cout << grid[start_cell.grid_x_loc][start_cell.grid_y_loc].gCost << std::endl;
 			return reconstruct_path(current);
 		}
@@ -397,7 +401,7 @@ std::vector<Cell> A_star::find_path(const float &start_x, const float &start_y,
 
 		//std::cout << "Neighbors of (" << current.x << "," << current.y << ")" << std::endl;
 		for(size_t i = 0; i < list_of_neighbors.size(); i++){
-			std::cout << "    gridX:" << list_of_neighbors[i].grid_x_loc << " gridY:" << list_of_neighbors[i].grid_y_loc << " id:" << list_of_neighbors[i].id << std::endl;
+			//std::cout << "    gridX:" << list_of_neighbors[i].grid_x_loc << " gridY:" << list_of_neighbors[i].grid_y_loc << " id:" << list_of_neighbors[i].id << std::endl;
 
 			Cell neighbor = list_of_neighbors[i];
 			// if neighbor in closedSet:
@@ -407,7 +411,7 @@ std::vector<Cell> A_star::find_path(const float &start_x, const float &start_y,
 				continue; // ignore since it's already evaluated
 			}			
             // The distance from start to a neighbor
-            float tentative_gScore = gScore[current] + dist_between(current, neighbor); //+ othercost
+            float tentative_gScore = gScore[current] + dist_between(current, neighbor) ;
 
 			// if neighbor not in openSet:
 			it_cell = std::find(open_set.begin(), open_set.end(), neighbor);
@@ -418,7 +422,7 @@ std::vector<Cell> A_star::find_path(const float &start_x, const float &start_y,
 	            fScore[neighbor] = gScore[neighbor] + heuristic_distance_cost(neighbor, goal_cell);
 	            neighbor.gCost = fScore[neighbor];
 
-	            std::cout << "        neighbor g_Cost:" << neighbor.gCost << std::endl; 
+	            //std::cout << "        neighbor g_Cost:" << neighbor.gCost << std::endl; 
 
 				open_set.push_back(neighbor); // Discover new node			
 
@@ -449,6 +453,11 @@ float A_star::heuristic_distance_cost(Cell c1_start, Cell c1_end){
 
 float A_star::dist_between(Cell c1_start, Cell c1_end){
 	float dist_cost =  sqrt(pow((c1_start.x - c1_end.x),2) + pow((c1_start.y - c1_end.y),2));
+
+
+	dist_cost += sqrt(pow( (social_cost(c1_start) - social_cost(c1_end)) , 2) );
+	
+
 	//std::cout << "        Dist_between cost:" << dist_cost << std::endl;
 	return dist_cost;
 }
@@ -476,6 +485,22 @@ std::vector<Cell> A_star::reconstruct_path(Cell goal_cell){
 	}	
 	return total_path;
 
+}
+
+float A_star::social_cost(Cell cell_eval){
+	float mean_x = turtle_2x;
+	float mean_y = turtle_2y;
+
+	float sigma = 1;
+	float exp_term_x = (cell_eval.x - mean_x)*(cell_eval.x - mean_x)/(2*sigma*sigma);
+	float exp_term_y = (cell_eval.y - mean_y)*(cell_eval.y - mean_y)/(2*sigma*sigma);	
+
+	float x_cost = (1/sqrt(2*sigma*sigma*3.14) * exp(-exp_term_x));
+	float y_cost = (1/sqrt(2*sigma*sigma*3.14) * exp(-exp_term_y));
+
+	//std::cout <<"Cost: " << (x_cost + y_cost) << std::endl;
+
+	return  250	*(x_cost + y_cost);
 }
 
 

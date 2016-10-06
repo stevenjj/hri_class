@@ -1,0 +1,157 @@
+#ifndef SOCIAL_CMD_HEADER
+#define SOCIAL_CMD_HEADER
+
+#include "ros/ros.h"
+#include "geometry_msgs/Twist.h"
+#include "turtlesim/Color.h"
+#include "turtlesim/Pose.h"
+#include "turtlesim/SetPen.h"
+#include "social_tbot.h"
+
+#include <Eigen/Dense>
+
+#define PI 3.14159265359
+
+#define STATE_IDLE 0
+#define STATE_MOVE_STRAIGHT 1
+#define STATE_TURN_TO_GOAL 2
+
+#define STATE_MOVE_TO_GOAL 3
+
+
+class TurtleCmdNode{
+public:
+  ros::NodeHandle node;
+  ros::Subscriber pose_sub;
+  ros::Subscriber turtle2_pose_sub;
+
+  ros::Publisher  cmd_pub;   
+  ros::ServiceClient pencolor_client;
+
+  turtlesim::SetPen pen_srv;
+
+  A_star As_obj;
+  std::vector<Cell> path;
+
+  bool compute_once;
+  bool turtle2_loc;
+
+  // Robot States
+  float internal_time;
+  float internal_dt;
+  float omega;
+  std::vector<int> states;
+  turtlesim::Pose current_pose;
+  turtlesim::Pose goal_pose;
+  int current_state;
+  int current_task;
+
+  std::string current_task_description;
+
+  float kp_head;
+  float ki_head;  
+
+  float kp_lin;
+  float kd_lin;
+  float ki_lin;    
+  float error_cum;
+
+  float init_x;
+  float init_y;
+  float step_size;
+
+  bool start_motion;
+  bool drunk_motion;
+  float init_error_dist;
+
+  float MAX_LINEAR_VEL;
+  float MAX_ANGULAR_VEL;  
+
+  void pose_callback(const turtlesim::PoseConstPtr& msg);
+  void cmd_callback(const turtlesim::PoseConstPtr& msg);
+  void update_current_pose(const turtlesim::PoseConstPtr& msg);
+  void update_state(int new_state);
+  void do_next_task();  
+
+  void change_pen(int r, int g, int b, int width, int off);
+
+  void set_goal(float goal_x, float goal_y);
+  void update_task();
+
+  geometry_msgs::Twist get_cmd(const turtlesim::PoseConstPtr& msg);
+
+
+  float calculate_linear_error();
+  float calculate_heading_error();  
+
+  float max_linear_command(float linear_command);
+  float max_heading_command(float heading_command);  
+
+
+  TurtleCmdNode();
+  ~TurtleCmdNode();  
+};
+
+TurtleCmdNode::TurtleCmdNode(): kp_head(12), ki_head(0.01), kp_lin(5), kd_lin(0.05), ki_lin(0), error_cum(0),
+                                current_task(-1), MAX_LINEAR_VEL(5), MAX_ANGULAR_VEL(10) {
+  start_motion = false;
+  internal_time = 0.0;
+  internal_dt = 0.01;
+  drunk_motion = false;
+  omega = 10;
+  states.push_back(STATE_IDLE);
+  states.push_back(STATE_MOVE_STRAIGHT);
+  states.push_back(STATE_TURN_TO_GOAL);
+  current_state = STATE_IDLE;
+
+  init_x = 1; init_y = 9; step_size = 2.5;
+  
+  int resolution = 100; // Number of cells per dimension
+  float x_min = 0; float y_min = 0; float x_max = 10; float y_max = 10;
+
+  A_star obj(resolution, x_min, x_max, y_min, y_max);
+  As_obj = obj;
+
+  compute_once = false;
+  turtle2_loc  = false;
+
+} //Initialize gains and states 
+
+TurtleCmdNode::~TurtleCmdNode(){} // standard destructor
+
+// Simple utils
+float rad_2_deg(float rads){
+  return (180.0/PI)*rads;
+}
+
+float deg_2_rad(float degs){
+  return (PI/180.0)*degs;
+}
+
+float sign(float num){
+  if (num > 0){
+    return 1;
+  }else if (num < 0){
+    return -1;
+  }else{
+    return 0;
+  }
+}
+
+float TurtleCmdNode::max_linear_command(float linear_command){
+  if (fabs(linear_command) > MAX_LINEAR_VEL){
+    return MAX_LINEAR_VEL;
+  }else{
+    return fabs(linear_command);
+  }
+}
+
+float TurtleCmdNode::max_heading_command(float heading_command){
+  if (fabs(heading_command) > MAX_ANGULAR_VEL){
+    return MAX_ANGULAR_VEL;
+  }else{
+    return fabs(heading_command);
+  }
+}
+
+#endif
