@@ -24,7 +24,7 @@ void TurtleCmdNode::change_pen(int r, int g, int b, int width, int off){
 
   if (pencolor_client.call(pen_srv))
   {
-    ROS_INFO("Color Change");
+//    ROS_INFO("Color Change");
   }
 }
 
@@ -36,8 +36,8 @@ void TurtleCmdNode::set_goal(float goal_x, float goal_y){
   goal_pose.theta = atan2( (goal_y - current_pose.y), 
                            (goal_x - current_pose.x) );
 
-  update_state(STATE_TURN_TO_GOAL);
-
+//  update_state(STATE_TURN_TO_GOAL);
+  update_state(STATE_MOVE_TO_GOAL);
 }
 
 float TurtleCmdNode::calculate_linear_error(){
@@ -107,27 +107,12 @@ geometry_msgs::Twist TurtleCmdNode::get_cmd(const turtlesim::PoseConstPtr& msg){
 
       //ROS_INFO("heading error: %f", heading_error);
 
-      if (start_motion == false){
-        start_motion = true;
-        init_error_dist = linear_error;
-      }
-
-      error_cum += linear_error;      
       // Calculate Control Command
       linear_command = kp_lin*linear_error;// - kd_lin*current_pose.linear_velocity + ki_lin*error_cum;      
       heading_command = kp_head*heading_error;// + (double)(rand() % 10 +1)/4.0;
 
-      float b = 5; float a = -5;
-      //float random_num = 1 + (b-a) * ((double)(rand() % 100) / 100.0) + a;
-      //heading_command += ( (10+random_num)  *cos(25*internal_time));
-
-//      heading_command += ( 0.5*sin(100*PI/init_error_dist)*linear_error);
-      internal_time += internal_dt;     
-
       //ROS_INFO("mag: %f", linear_error);
-      if (fabs(linear_error) < 0.25){
-        internal_time = 0;
-        error_cum = 0;
+      if (fabs(linear_error) < 0.15){
         update_state(STATE_IDLE);
       }
   }

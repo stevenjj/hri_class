@@ -491,13 +491,13 @@ float A_star::social_cost(Cell cell_eval){
 	float mean_x = turtle_2x;
 	float mean_y = turtle_2y;
 
-	float sigma = 1;
-	float exp_term_x = (cell_eval.x - mean_x)*(cell_eval.x - mean_x)/(2*sigma*sigma);
+	float sigma = 0.5;
+/*	float exp_term_x = (cell_eval.x - mean_x)*(cell_eval.x - mean_x)/(2*sigma*sigma);
 	float exp_term_y = (cell_eval.y - mean_y)*(cell_eval.y - mean_y)/(2*sigma*sigma);	
 
 	float x_cost = (1/sqrt(2*sigma*sigma*3.14) * exp(-exp_term_x));
 	float y_cost = (1/sqrt(2*sigma*sigma*3.14) * exp(-exp_term_y));
-
+*/
 	//std::cout <<"Cost: " << (x_cost + y_cost) << std::endl;
 
 	float z = (cell_eval.x- mean_x)*(cell_eval.x- mean_x)/(sigma*sigma) + 
@@ -505,7 +505,7 @@ float A_star::social_cost(Cell cell_eval){
 	float exp_term = z/2;
 	float bi_variate_cost = (1/sqrt(2*3.14159*sigma*sigma))*exp(-exp_term);
 
-	return  50 *	bi_variate_cost;
+	return  50 * bi_variate_cost;
 }
 
 
