@@ -52,32 +52,10 @@ void TurtleNode::speech_callback(const hlpr_speech_msgs::StampedStringConstPtr &
 	}
 }
 
-
-void callback(const hlpr_speech_msgs::StampedStringConstPtr &msg){
-	//std::cout << msg->keyphrase << std::endl;
-
-	std::string forward_command("FORWARD");
-	std::string turn_left_command("LEFT");
-	std::string turn_right_command("RIGHT");		
-
-	if (msg->keyphrase.compare(forward_command) == 0){
-		ROS_INFO("The command is to move forward");
-	}
-	if (msg->keyphrase.compare(turn_left_command) == 0){
-		ROS_INFO("The command is to turn left");
-	}
-	if (msg->keyphrase.compare(turn_right_command) == 0){
-		ROS_INFO("The command is to turn right");
-	}
-
-}
-
 int main(int argc, char **argv)
 {
   ros::init(argc, argv, "speech_tbot");
-  //ros::NodeHandle n;
-  //ros::Subscriber sub = n.subscribe<hlpr_speech_msgs::StampedString>("/hlpr_speech_commands", 1, callback);
-
+  
   TurtleNode turtle;
   turtle.speech_sub = turtle.node.subscribe<hlpr_speech_msgs::StampedString>("/hlpr_speech_commands", 1, boost::bind(&TurtleNode::speech_callback, &turtle, _1));
   turtle.cmd_pub = turtle.node.advertise<geometry_msgs::Twist>("/turtle1/cmd_vel", 1000);  
