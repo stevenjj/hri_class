@@ -1,0 +1,26 @@
+In this assignment, I control turtlesim using three commands:
+(1) "GO STRAIGHT" to move forward
+(2) "LEFT" to turn left
+(3) "RIGHT" to turn right
+
+I modified the files under speech/hlpr_speech_recognition/data to properly incorporate the verbal commands.
+
+
+During testing, when I launch the speech recognition software using the microphone via the following command:
+
+$ roslaunch hlpr_speech_recognition speech_rec.launch
+
+I would see that the software was able to identify my commands. However, it was not publishing it to a ROS topic. To circumvent this problem, I modified 
+speech/hlpr_speech_recognition/speech_recognizer.py and changed the threshold values. Specifically, I changed them to the following lines:
+
+    default_rec_thresh = -1600 #300  #higher reduces false positives but makes it harder to detect
+	
+	maxProb = -2000 # 0
+
+
+While in a noisy environment the speech regonition did not work very well, the software is able to recognize my commands in a silent environment. If there are more verbal commands, this approach probably would not work. However, I specifically chose three distinct sounding commands to increase the performance quality.
+
+Please see the "speech_controlled_turtle.ogv" turtle video to visualize the turtle as I give speech commands
+
+Steven Jens Jorgensen
+smj2444
