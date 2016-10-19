@@ -66,7 +66,7 @@ class SpeechRecognizer():
     default_modeldir = "/usr/local/share/pocketsphinx/model"
     default_dict_path = rospack.get_path('hlpr_speech_recognition') + '/data/kps.dic'
     default_kps_path = rospack.get_path('hlpr_speech_recognition') + '/data/kps.txt'
-    default_rec_thresh = 300  #higher reduces false positives but makes it harder to detect
+    default_rec_thresh = -1600 #300  #higher reduces false positives but makes it harder to detect
     default_pub_topic = 'hlpr_speech_commands'
 
     # Load model and dictionary values from param server
@@ -133,7 +133,7 @@ class SpeechRecognizer():
         break
       if decoder.hyp() != None:
         hypothesis = decoder.hyp()
-        maxProb = 0
+        maxProb = -2000 # 0
         for seg in decoder.seg():
           if seg.prob > maxProb:
             selectedSegment = seg

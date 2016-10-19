@@ -179,24 +179,24 @@ INFO: batch.c(729): Decoding '001'
 INFO: cmn.c(133): CMN: 60.15 -8.53  5.16 -1.34 -13.17  9.79 -5.85 -0.31 -7.19 -0.06  1.21 -1.82  3.51 
 INFO: fsg_search.c(859): 109 frames, 22165 HMMs (203/fr), 18632 senones (170/fr), 4811 history entries (44/fr)
 
-INFO: fsg_search.c(869): fsg 0.05 CPU 0.047 xRT
-INFO: fsg_search.c(871): fsg 0.06 wall 0.053 xRT
+INFO: fsg_search.c(869): fsg 0.04 CPU 0.036 xRT
+INFO: fsg_search.c(871): fsg 0.04 wall 0.036 xRT
 INFO: pocketsphinx.c(1168): ten of clubs (-2270)
 word                 start end   pprob ascr       lscr       lback
 ten                  0     33    1.000 -1025      0          1  
 of                   34    45    1.000 -217       0          1  
 clubs                46    95    1.000 -532       0          1  
 <sil>                96    108   1.000 -159       -337       1  
-INFO: batch.c(761): 001: 1.09 seconds speech, 0.05 seconds CPU, 0.06 seconds wall
-INFO: batch.c(763): 001: 0.05 xRT (CPU), 0.05 xRT (elapsed)
+INFO: batch.c(761): 001: 1.09 seconds speech, 0.04 seconds CPU, 0.04 seconds wall
+INFO: batch.c(763): 001: 0.04 xRT (CPU), 0.04 xRT (elapsed)
 ten of clubs (001 -2270)
 001 done --------------------------------------
 INFO: batch.c(729): Decoding '002'
 INFO: cmn.c(133): CMN: 61.44 -2.26  4.87  2.65 -9.23  1.13 -4.17 -2.84 -6.72 -3.74 -0.22 -0.63  0.84 
 INFO: fsg_search.c(859): 195 frames, 20808 HMMs (106/fr), 20838 senones (106/fr), 4269 history entries (21/fr)
 
-INFO: fsg_search.c(869): fsg 0.09 CPU 0.045 xRT
-INFO: fsg_search.c(871): fsg 0.10 wall 0.049 xRT
+INFO: fsg_search.c(869): fsg 0.05 CPU 0.024 xRT
+INFO: fsg_search.c(871): fsg 0.05 wall 0.025 xRT
 INFO: pocketsphinx.c(1168): four queen of clubs (-3114)
 word                 start end   pprob ascr       lscr       lback
 four                 0     62    1.000 -1056      0          1  
@@ -205,16 +205,16 @@ queen                77    103   1.000 -246       0          1
 of                   104   118   1.000 -174       0          1  
 clubs                119   171   1.000 -437       0          1  
 <sil>                172   194   1.000 -352       -337       1  
-INFO: batch.c(761): 002: 1.95 seconds speech, 0.09 seconds CPU, 0.10 seconds wall
-INFO: batch.c(763): 002: 0.05 xRT (CPU), 0.05 xRT (elapsed)
+INFO: batch.c(761): 002: 1.95 seconds speech, 0.05 seconds CPU, 0.05 seconds wall
+INFO: batch.c(763): 002: 0.02 xRT (CPU), 0.02 xRT (elapsed)
 four queen of clubs (002 -3114)
 002 done --------------------------------------
 INFO: batch.c(729): Decoding '003'
 INFO: cmn.c(133): CMN: 60.67 -12.29  7.60 -6.91 -12.22  7.26 -9.53  4.26 -13.25  4.69 -0.64  0.65  4.32 
 INFO: fsg_search.c(859): 153 frames, 25522 HMMs (166/fr), 24006 senones (156/fr), 4918 history entries (32/fr)
 
-INFO: fsg_search.c(869): fsg 0.06 CPU 0.039 xRT
-INFO: fsg_search.c(871): fsg 0.06 wall 0.040 xRT
+INFO: fsg_search.c(869): fsg 0.04 CPU 0.026 xRT
+INFO: fsg_search.c(871): fsg 0.04 wall 0.027 xRT
 INFO: pocketsphinx.c(1168): seven of clubs (-3405)
 word                 start end   pprob ascr       lscr       lback
 <sil>                0     5     1.000 -198       -337       1  
@@ -222,16 +222,16 @@ seven                6     56    1.000 -561       0          1
 of                   57    69    1.000 -288       0          1  
 clubs                70    126   1.000 -780       0          1  
 <sil>                127   152   1.000 -904       -337       1  
-INFO: batch.c(761): 003: 1.53 seconds speech, 0.06 seconds CPU, 0.06 seconds wall
-INFO: batch.c(763): 003: 0.04 xRT (CPU), 0.04 xRT (elapsed)
+INFO: batch.c(761): 003: 1.53 seconds speech, 0.04 seconds CPU, 0.04 seconds wall
+INFO: batch.c(763): 003: 0.03 xRT (CPU), 0.03 xRT (elapsed)
 seven of clubs (003 -3405)
 003 done --------------------------------------
 INFO: batch.c(729): Decoding '004'
 INFO: cmn.c(133): CMN: 65.62 -2.57 -9.74  1.07 -11.56  0.38 -8.64 -4.38 -7.60  7.54 -2.29  6.16 -2.77 
 INFO: fsg_search.c(859): 147 frames, 24202 HMMs (164/fr), 22726 senones (154/fr), 5533 history entries (37/fr)
 
-INFO: fsg_search.c(869): fsg 0.04 CPU 0.027 xRT
-INFO: fsg_search.c(871): fsg 0.04 wall 0.027 xRT
+INFO: fsg_search.c(869): fsg 0.04 CPU 0.030 xRT
+INFO: fsg_search.c(871): fsg 0.04 wall 0.028 xRT
 INFO: pocketsphinx.c(1168): five five (-2545)
 word                 start end   pprob ascr       lscr       lback
 five                 0     64    1.000 -835       0          1  
@@ -246,8 +246,8 @@ INFO: batch.c(729): Decoding '005'
 INFO: cmn.c(133): CMN: 59.56 -8.59  2.68  3.24 -9.51  2.18 -6.05  0.77 -6.80 -0.72 -0.56  0.02  1.07 
 INFO: fsg_search.c(859): 340 frames, 25631 HMMs (75/fr), 34233 senones (100/fr), 4480 history entries (13/fr)
 
-INFO: fsg_search.c(869): fsg 0.07 CPU 0.021 xRT
-INFO: fsg_search.c(871): fsg 0.07 wall 0.022 xRT
+INFO: fsg_search.c(869): fsg 0.08 CPU 0.022 xRT
+INFO: fsg_search.c(871): fsg 0.08 wall 0.023 xRT
 INFO: pocketsphinx.c(1168): eight of spades four of clubs seven of hearts (-5417)
 word                 start end   pprob ascr       lscr       lback
 <sil>                0     10    1.000 -157       -337       1  
@@ -261,11 +261,11 @@ seven                216   253   1.000 -481       0          1
 of                   254   264   1.000 -180       0          1  
 hearts               265   316   1.000 -524       0          1  
 <sil>                317   339   1.000 -144       -337       1  
-INFO: batch.c(761): 005: 3.40 seconds speech, 0.07 seconds CPU, 0.07 seconds wall
+INFO: batch.c(761): 005: 3.40 seconds speech, 0.08 seconds CPU, 0.08 seconds wall
 INFO: batch.c(763): 005: 0.02 xRT (CPU), 0.02 xRT (elapsed)
 eight of spades four of clubs seven of hearts (005 -5417)
 005 done --------------------------------------
-INFO: batch.c(778): TOTAL 9.44 seconds speech, 0.32 seconds CPU, 0.33 seconds wall
-INFO: batch.c(780): AVERAGE 0.03 xRT (CPU), 0.04 xRT (elapsed)
-INFO: fsg_search.c(265): TOTAL fsg 0.31 CPU 0.033 xRT
-INFO: fsg_search.c(268): TOTAL fsg 0.33 wall 0.035 xRT
+INFO: batch.c(778): TOTAL 9.44 seconds speech, 0.25 seconds CPU, 0.25 seconds wall
+INFO: batch.c(780): AVERAGE 0.03 xRT (CPU), 0.03 xRT (elapsed)
+INFO: fsg_search.c(265): TOTAL fsg 0.25 CPU 0.026 xRT
+INFO: fsg_search.c(268): TOTAL fsg 0.25 wall 0.026 xRT

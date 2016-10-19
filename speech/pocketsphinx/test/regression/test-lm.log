@@ -170,16 +170,16 @@ INFO: ngram_search_fwdtree.c(1552):  1672962 senones evaluated (2400/fr)
 INFO: ngram_search_fwdtree.c(1556):  4936039 channels searched (7081/fr), 318914 1st, 513503 last
 INFO: ngram_search_fwdtree.c(1559):    24638 words for which last channels evaluated (35/fr)
 INFO: ngram_search_fwdtree.c(1561):   226342 candidate words for entering last phone (324/fr)
-INFO: ngram_search_fwdtree.c(1564): fwdtree 2.87 CPU 0.412 xRT
-INFO: ngram_search_fwdtree.c(1567): fwdtree 2.92 wall 0.419 xRT
+INFO: ngram_search_fwdtree.c(1564): fwdtree 2.73 CPU 0.391 xRT
+INFO: ngram_search_fwdtree.c(1567): fwdtree 2.73 wall 0.392 xRT
 INFO: ngram_search_fwdflat.c(302): Utterance vocabulary contains 535 words
 INFO: ngram_search_fwdflat.c(948):     7603 words recognized (11/fr)
 INFO: ngram_search_fwdflat.c(950):   543343 senones evaluated (780/fr)
 INFO: ngram_search_fwdflat.c(952):   758818 channels searched (1088/fr)
 INFO: ngram_search_fwdflat.c(954):    45552 words searched (65/fr)
 INFO: ngram_search_fwdflat.c(957):    37401 word transitions (53/fr)
-INFO: ngram_search_fwdflat.c(960): fwdflat 0.76 CPU 0.110 xRT
-INFO: ngram_search_fwdflat.c(963): fwdflat 0.78 wall 0.112 xRT
+INFO: ngram_search_fwdflat.c(960): fwdflat 0.37 CPU 0.053 xRT
+INFO: ngram_search_fwdflat.c(963): fwdflat 0.37 wall 0.053 xRT
 INFO: ngram_search.c(1250): lattice start node <s>.0 end node </s>.665
 INFO: ngram_search.c(1276): Eliminated 0 nodes before end node
 INFO: ngram_search.c(1381): Lattice has 1433 nodes, 4628 links
@@ -221,8 +221,8 @@ for                  621   650   0.958 -927744    -325       3
 </s>                 665   695   1.000 -681984    -169       1  
 INFO: ngram_search.c(872): bestpath 0.00 CPU 0.000 xRT
 INFO: ngram_search.c(875): bestpath 0.00 wall 0.000 xRT
-INFO: batch.c(761): sense_and_sensibility_01_austen_64kb-0870: 6.96 seconds speech, 3.66 seconds CPU, 3.72 seconds wall
-INFO: batch.c(763): sense_and_sensibility_01_austen_64kb-0870: 0.53 xRT (CPU), 0.53 xRT (elapsed)
+INFO: batch.c(761): sense_and_sensibility_01_austen_64kb-0870: 6.96 seconds speech, 3.12 seconds CPU, 3.13 seconds wall
+INFO: batch.c(763): sense_and_sensibility_01_austen_64kb-0870: 0.45 xRT (CPU), 0.45 xRT (elapsed)
 but mr john guess would have been at leisure to consider how much there might be prickly in his power to do for (sense_and_sensibility_01_austen_64kb-0870 -30200)
 sense_and_sensibility_01_austen_64kb-0870 done --------------------------------------
 INFO: batch.c(729): Decoding 'sense_and_sensibility_01_austen_64kb-0880'
@@ -232,16 +232,16 @@ INFO: ngram_search_fwdtree.c(1552):   710389 senones evaluated (2484/fr)
 INFO: ngram_search_fwdtree.c(1556):  2727641 channels searched (9537/fr), 130710 1st, 201597 last
 INFO: ngram_search_fwdtree.c(1559):    10146 words for which last channels evaluated (35/fr)
 INFO: ngram_search_fwdtree.c(1561):   165963 candidate words for entering last phone (580/fr)
-INFO: ngram_search_fwdtree.c(1564): fwdtree 2.13 CPU 0.745 xRT
-INFO: ngram_search_fwdtree.c(1567): fwdtree 2.20 wall 0.769 xRT
+INFO: ngram_search_fwdtree.c(1564): fwdtree 1.60 CPU 0.561 xRT
+INFO: ngram_search_fwdtree.c(1567): fwdtree 1.61 wall 0.563 xRT
 INFO: ngram_search_fwdflat.c(302): Utterance vocabulary contains 270 words
 INFO: ngram_search_fwdflat.c(948):     3768 words recognized (13/fr)
 INFO: ngram_search_fwdflat.c(950):   224304 senones evaluated (784/fr)
 INFO: ngram_search_fwdflat.c(952):   347807 channels searched (1216/fr)
 INFO: ngram_search_fwdflat.c(954):    19547 words searched (68/fr)
 INFO: ngram_search_fwdflat.c(957):    15314 word transitions (53/fr)
-INFO: ngram_search_fwdflat.c(960): fwdflat 0.21 CPU 0.074 xRT
-INFO: ngram_search_fwdflat.c(963): fwdflat 0.21 wall 0.074 xRT
+INFO: ngram_search_fwdflat.c(960): fwdflat 0.18 CPU 0.062 xRT
+INFO: ngram_search_fwdflat.c(963): fwdflat 0.18 wall 0.062 xRT
 INFO: ngram_search.c(1250): lattice start node <s>.0 end node </s>.261
 INFO: ngram_search.c(1276): Eliminated 1 nodes before end node
 INFO: ngram_search.c(1381): Lattice has 642 nodes, 3268 links
@@ -267,8 +267,8 @@ man                  220   260   1.000 -516096    -217       2
 </s>                 261   284   1.000 -516096    -108       2  
 INFO: ngram_search.c(872): bestpath 0.00 CPU 0.000 xRT
 INFO: ngram_search.c(875): bestpath 0.00 wall 0.000 xRT
-INFO: batch.c(761): sense_and_sensibility_01_austen_64kb-0880: 2.85 seconds speech, 2.36 seconds CPU, 2.42 seconds wall
-INFO: batch.c(763): sense_and_sensibility_01_austen_64kb-0880: 0.83 xRT (CPU), 0.85 xRT (elapsed)
+INFO: batch.c(761): sense_and_sensibility_01_austen_64kb-0880: 2.85 seconds speech, 1.79 seconds CPU, 1.80 seconds wall
+INFO: batch.c(763): sense_and_sensibility_01_austen_64kb-0880: 0.63 xRT (CPU), 0.63 xRT (elapsed)
 he was not an illness those young man (sense_and_sensibility_01_austen_64kb-0880 -11423)
 sense_and_sensibility_01_austen_64kb-0880 done --------------------------------------
 INFO: batch.c(729): Decoding 'sense_and_sensibility_01_austen_64kb-0890'
@@ -278,24 +278,24 @@ INFO: ngram_search_fwdtree.c(1552):  1229279 senones evaluated (2373/fr)
 INFO: ngram_search_fwdtree.c(1556):  4131407 channels searched (7975/fr), 235983 1st, 477050 last
 INFO: ngram_search_fwdtree.c(1559):    22896 words for which last channels evaluated (44/fr)
 INFO: ngram_search_fwdtree.c(1561):   239516 candidate words for entering last phone (462/fr)
-INFO: ngram_search_fwdtree.c(1564): fwdtree 2.62 CPU 0.507 xRT
-INFO: ngram_search_fwdtree.c(1567): fwdtree 2.63 wall 0.507 xRT
+INFO: ngram_search_fwdtree.c(1564): fwdtree 2.36 CPU 0.456 xRT
+INFO: ngram_search_fwdtree.c(1567): fwdtree 2.37 wall 0.457 xRT
 INFO: ngram_search_fwdflat.c(302): Utterance vocabulary contains 497 words
 INFO: ngram_search_fwdflat.c(948):     7219 words recognized (14/fr)
 INFO: ngram_search_fwdflat.c(950):   463943 senones evaluated (896/fr)
 INFO: ngram_search_fwdflat.c(952):   727511 channels searched (1404/fr)
 INFO: ngram_search_fwdflat.c(954):    43421 words searched (83/fr)
 INFO: ngram_search_fwdflat.c(957):    35471 word transitions (68/fr)
-INFO: ngram_search_fwdflat.c(960): fwdflat 0.62 CPU 0.120 xRT
-INFO: ngram_search_fwdflat.c(963): fwdflat 0.62 wall 0.121 xRT
+INFO: ngram_search_fwdflat.c(960): fwdflat 0.36 CPU 0.070 xRT
+INFO: ngram_search_fwdflat.c(963): fwdflat 0.37 wall 0.071 xRT
 INFO: ngram_search.c(1250): lattice start node <s>.0 end node </s>.498
 INFO: ngram_search.c(1276): Eliminated 0 nodes before end node
 INFO: ngram_search.c(1381): Lattice has 1272 nodes, 4214 links
 INFO: ps_lattice.c(1380): Bestpath score: -21857
 INFO: ps_lattice.c(1384): Normalizer P(O) = alpha(</s>:498:516) = -1470692
 INFO: ps_lattice.c(1441): Joint P(O,S) = -1648508 P(S|O) = -177816
-INFO: ngram_search.c(872): bestpath 0.02 CPU 0.004 xRT
-INFO: ngram_search.c(875): bestpath 0.02 wall 0.004 xRT
+INFO: ngram_search.c(872): bestpath 0.01 CPU 0.002 xRT
+INFO: ngram_search.c(875): bestpath 0.01 wall 0.003 xRT
 INFO: pocketsphinx.c(1168): homeless to be rather cold hearted and rather selfish is to be oldest those (-22022)
 word                 start end   pprob ascr       lscr       lback
 INFO: ngram_search.c(1027): bestpath 0.00 CPU 0.000 xRT
@@ -320,8 +320,8 @@ those                447   497   0.609 -1056768   -493       1
 </s>                 498   516   1.000 -1056768   -225       2  
 INFO: ngram_search.c(872): bestpath 0.00 CPU 0.000 xRT
 INFO: ngram_search.c(875): bestpath 0.00 wall 0.000 xRT
-INFO: batch.c(761): sense_and_sensibility_01_austen_64kb-0890: 5.17 seconds speech, 3.27 seconds CPU, 3.27 seconds wall
-INFO: batch.c(763): sense_and_sensibility_01_austen_64kb-0890: 0.63 xRT (CPU), 0.63 xRT (elapsed)
+INFO: batch.c(761): sense_and_sensibility_01_austen_64kb-0890: 5.17 seconds speech, 2.74 seconds CPU, 2.75 seconds wall
+INFO: batch.c(763): sense_and_sensibility_01_austen_64kb-0890: 0.53 xRT (CPU), 0.53 xRT (elapsed)
 homeless to be rather cold hearted and rather selfish is to be oldest those (sense_and_sensibility_01_austen_64kb-0890 -22022)
 sense_and_sensibility_01_austen_64kb-0890 done --------------------------------------
 INFO: batch.c(729): Decoding 'sense_and_sensibility_01_austen_64kb-0920'
@@ -331,16 +331,16 @@ INFO: ngram_search_fwdtree.c(1552):  1171986 senones evaluated (1976/fr)
 INFO: ngram_search_fwdtree.c(1556):  2951775 channels searched (4977/fr), 222584 1st, 309124 last
 INFO: ngram_search_fwdtree.c(1559):    15385 words for which last channels evaluated (25/fr)
 INFO: ngram_search_fwdtree.c(1561):   130883 candidate words for entering last phone (220/fr)
-INFO: ngram_search_fwdtree.c(1564): fwdtree 1.90 CPU 0.320 xRT
-INFO: ngram_search_fwdtree.c(1567): fwdtree 1.90 wall 0.320 xRT
+INFO: ngram_search_fwdtree.c(1564): fwdtree 1.66 CPU 0.281 xRT
+INFO: ngram_search_fwdtree.c(1567): fwdtree 1.67 wall 0.281 xRT
 INFO: ngram_search_fwdflat.c(302): Utterance vocabulary contains 377 words
 INFO: ngram_search_fwdflat.c(948):     5165 words recognized (9/fr)
 INFO: ngram_search_fwdflat.c(950):   374992 senones evaluated (632/fr)
 INFO: ngram_search_fwdflat.c(952):   494829 channels searched (834/fr)
 INFO: ngram_search_fwdflat.c(954):    30430 words searched (51/fr)
 INFO: ngram_search_fwdflat.c(957):    24398 word transitions (41/fr)
-INFO: ngram_search_fwdflat.c(960): fwdflat 0.36 CPU 0.061 xRT
-INFO: ngram_search_fwdflat.c(963): fwdflat 0.36 wall 0.061 xRT
+INFO: ngram_search_fwdflat.c(960): fwdflat 0.26 CPU 0.045 xRT
+INFO: ngram_search_fwdflat.c(963): fwdflat 0.26 wall 0.045 xRT
 INFO: ngram_search.c(1250): lattice start node <s>.0 end node </s>.571
 INFO: ngram_search.c(1276): Eliminated 1 nodes before end node
 INFO: ngram_search.c(1381): Lattice has 944 nodes, 1934 links
@@ -374,8 +374,8 @@ watts                509   570   0.036 -1043456   -635       2
 </s>                 571   591   1.000 -1043456   -119       2  
 INFO: ngram_search.c(872): bestpath 0.00 CPU 0.000 xRT
 INFO: ngram_search.c(875): bestpath 0.00 wall 0.000 xRT
-INFO: batch.c(761): sense_and_sensibility_01_austen_64kb-0920: 5.92 seconds speech, 2.26 seconds CPU, 2.27 seconds wall
-INFO: batch.c(763): sense_and_sensibility_01_austen_64kb-0920: 0.38 xRT (CPU), 0.38 xRT (elapsed)
+INFO: batch.c(761): sense_and_sensibility_01_austen_64kb-0920: 5.92 seconds speech, 1.94 seconds CPU, 1.94 seconds wall
+INFO: batch.c(763): sense_and_sensibility_01_austen_64kb-0920: 0.33 xRT (CPU), 0.33 xRT (elapsed)
 had he married a more amiable woman he might have been made still more respectable many watts (sense_and_sensibility_01_austen_64kb-0920 -23591)
 sense_and_sensibility_01_austen_64kb-0920 done --------------------------------------
 INFO: batch.c(729): Decoding 'sense_and_sensibility_01_austen_64kb-0930'
@@ -385,16 +385,16 @@ INFO: ngram_search_fwdtree.c(1552):   644038 senones evaluated (2045/fr)
 INFO: ngram_search_fwdtree.c(1556):  1630230 channels searched (5175/fr), 130197 1st, 195406 last
 INFO: ngram_search_fwdtree.c(1559):     9580 words for which last channels evaluated (30/fr)
 INFO: ngram_search_fwdtree.c(1561):    68260 candidate words for entering last phone (216/fr)
-INFO: ngram_search_fwdtree.c(1564): fwdtree 1.00 CPU 0.319 xRT
-INFO: ngram_search_fwdtree.c(1567): fwdtree 1.00 wall 0.319 xRT
+INFO: ngram_search_fwdtree.c(1564): fwdtree 0.88 CPU 0.281 xRT
+INFO: ngram_search_fwdtree.c(1567): fwdtree 0.88 wall 0.281 xRT
 INFO: ngram_search_fwdflat.c(302): Utterance vocabulary contains 286 words
 INFO: ngram_search_fwdflat.c(948):     3482 words recognized (11/fr)
 INFO: ngram_search_fwdflat.c(950):   236140 senones evaluated (750/fr)
 INFO: ngram_search_fwdflat.c(952):   351437 channels searched (1115/fr)
 INFO: ngram_search_fwdflat.c(954):    20902 words searched (66/fr)
 INFO: ngram_search_fwdflat.c(957):    16738 word transitions (53/fr)
-INFO: ngram_search_fwdflat.c(960): fwdflat 0.23 CPU 0.072 xRT
-INFO: ngram_search_fwdflat.c(963): fwdflat 0.23 wall 0.073 xRT
+INFO: ngram_search_fwdflat.c(960): fwdflat 0.17 CPU 0.055 xRT
+INFO: ngram_search_fwdflat.c(963): fwdflat 0.17 wall 0.055 xRT
 INFO: ngram_search.c(1250): lattice start node <s>.0 end node </s>.291
 INFO: ngram_search.c(1276): Eliminated 2 nodes before end node
 INFO: ngram_search.c(1381): Lattice has 622 nodes, 3034 links
@@ -402,7 +402,7 @@ INFO: ps_lattice.c(1380): Bestpath score: -13486
 INFO: ps_lattice.c(1384): Normalizer P(O) = alpha(</s>:291:313) = -904540
 INFO: ps_lattice.c(1441): Joint P(O,S) = -969680 P(S|O) = -65140
 INFO: ngram_search.c(872): bestpath 0.01 CPU 0.003 xRT
-INFO: ngram_search.c(875): bestpath 0.01 wall 0.003 xRT
+INFO: ngram_search.c(875): bestpath 0.01 wall 0.002 xRT
 INFO: pocketsphinx.c(1168): he might even have been made the amiable itself (-13778)
 word                 start end   pprob ascr       lscr       lback
 INFO: ngram_search.c(1027): bestpath 0.00 CPU 0.000 xRT
@@ -421,15 +421,15 @@ itself               214   279   0.704 -2102272   -583       1
 </s>                 291   313   1.000 -451584    -169       1  
 INFO: ngram_search.c(872): bestpath 0.00 CPU 0.000 xRT
 INFO: ngram_search.c(875): bestpath 0.00 wall 0.000 xRT
-INFO: batch.c(761): sense_and_sensibility_01_austen_64kb-0930: 3.14 seconds speech, 1.24 seconds CPU, 1.24 seconds wall
-INFO: batch.c(763): sense_and_sensibility_01_austen_64kb-0930: 0.39 xRT (CPU), 0.40 xRT (elapsed)
+INFO: batch.c(761): sense_and_sensibility_01_austen_64kb-0930: 3.14 seconds speech, 1.06 seconds CPU, 1.06 seconds wall
+INFO: batch.c(763): sense_and_sensibility_01_austen_64kb-0930: 0.34 xRT (CPU), 0.34 xRT (elapsed)
 he might even have been made the amiable itself (sense_and_sensibility_01_austen_64kb-0930 -13778)
 sense_and_sensibility_01_austen_64kb-0930 done --------------------------------------
-INFO: batch.c(778): TOTAL 24.04 seconds speech, 12.78 seconds CPU, 12.93 seconds wall
-INFO: batch.c(780): AVERAGE 0.53 xRT (CPU), 0.54 xRT (elapsed)
-INFO: ngram_search_fwdtree.c(429): TOTAL fwdtree 10.53 CPU 0.438 xRT
-INFO: ngram_search_fwdtree.c(432): TOTAL fwdtree 10.65 wall 0.443 xRT
-INFO: ngram_search_fwdflat.c(176): TOTAL fwdflat 2.19 CPU 0.091 xRT
-INFO: ngram_search_fwdflat.c(179): TOTAL fwdflat 2.21 wall 0.092 xRT
-INFO: ngram_search.c(303): TOTAL bestpath 0.07 CPU 0.003 xRT
-INFO: ngram_search.c(306): TOTAL bestpath 0.07 wall 0.003 xRT
+INFO: batch.c(778): TOTAL 24.04 seconds speech, 10.66 seconds CPU, 10.67 seconds wall
+INFO: batch.c(780): AVERAGE 0.44 xRT (CPU), 0.44 xRT (elapsed)
+INFO: ngram_search_fwdtree.c(429): TOTAL fwdtree 9.24 CPU 0.385 xRT
+INFO: ngram_search_fwdtree.c(432): TOTAL fwdtree 9.26 wall 0.385 xRT
+INFO: ngram_search_fwdflat.c(176): TOTAL fwdflat 1.35 CPU 0.056 xRT
+INFO: ngram_search_fwdflat.c(179): TOTAL fwdflat 1.35 wall 0.056 xRT
+INFO: ngram_search.c(303): TOTAL bestpath 0.06 CPU 0.003 xRT
+INFO: ngram_search.c(306): TOTAL bestpath 0.06 wall 0.002 xRT

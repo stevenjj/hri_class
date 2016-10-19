@@ -17,7 +17,7 @@ old_library='libsphinxad.a'
 inherited_linker_flags=''
 
 # Libraries that this one depends upon.
-dependency_libs=' /home/stevenjj/catkin_ws/src/speech/sphinxbase/src/libsphinxbase/libsphinxbase.la -lpthread -lm -lblas -llapack'
+dependency_libs=' /home/travis/catkin_ws/src/hri_class/speech/sphinxbase/src/libsphinxbase/libsphinxbase.la -lpthread -lm'
 
 # Names of additional weak libraries provided by this library
 weak_library_names=''
@@ -39,4 +39,4 @@ dlpreopen=''
 
 # Directory that this library needs to be installed in:
 libdir='/usr/local/lib'
-relink_command="(cd /home/stevenjj/catkin_ws/src/speech/sphinxbase/src/libsphinxad; /bin/bash /home/stevenjj/catkin_ws/src/speech/sphinxbase/libtool  --tag CC --mode=relink gcc -std=gnu99 -I../../include/sphinxbase -I../../include -I../../include -g -O2 -Wall -version-info 3:0:0 -o libsphinxad.la -rpath /usr/local/lib ad_oss.lo ../../src/libsphinxbase/libsphinxbase.la -lpthread -lm -lblas -llapack @inst_prefix_dir@)"
+relink_command="(cd /home/travis/catkin_ws/src/hri_class/speech/sphinxbase/src/libsphinxad; /bin/bash /home/travis/catkin_ws/src/hri_class/speech/sphinxbase/libtool  --tag CC --mode=relink gcc -std=gnu99 -I../../include/sphinxbase -I../../include -I../../include -g -O2 -Wall -version-info 3:0:0 -o libsphinxad.la -rpath /usr/local/lib ad_oss.lo ../../src/libsphinxbase/libsphinxbase.la -lpthread -lm @inst_prefix_dir@)"

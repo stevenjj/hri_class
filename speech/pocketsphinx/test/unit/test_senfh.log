@@ -163,8 +163,8 @@ INFO: ngram_search_fwdtree.c(1552):   890368 senones evaluated (3398/fr)
 INFO: ngram_search_fwdtree.c(1556):  3743893 channels searched (14289/fr), 172057 1st, 122909 last
 INFO: ngram_search_fwdtree.c(1559):    10222 words for which last channels evaluated (39/fr)
 INFO: ngram_search_fwdtree.c(1561):   307000 candidate words for entering last phone (1171/fr)
-INFO: ngram_search_fwdtree.c(1564): fwdtree 1.90 CPU 0.727 xRT
-INFO: ngram_search_fwdtree.c(1567): fwdtree 1.93 wall 0.737 xRT
+INFO: ngram_search_fwdtree.c(1564): fwdtree 2.18 CPU 0.834 xRT
+INFO: ngram_search_fwdtree.c(1567): fwdtree 2.19 wall 0.835 xRT
 go forward ten meters
 INFO: cmn_live.c(120): Update from < 41.00 -5.29 -0.12  5.09  2.48 -4.07 -1.37 -1.78 -5.08 -2.05 -6.45 -1.42  1.17 >
 INFO: cmn_live.c(138): Update to   < 41.00 -5.29 -0.12  5.09  2.48 -4.07 -1.37 -1.78 -5.08 -2.05 -6.45 -1.42  1.17 >
@@ -173,10 +173,10 @@ INFO: ngram_search_fwdtree.c(1552):   890368 senones evaluated (3398/fr)
 INFO: ngram_search_fwdtree.c(1556):  3743893 channels searched (14289/fr), 172057 1st, 122909 last
 INFO: ngram_search_fwdtree.c(1559):    10222 words for which last channels evaluated (39/fr)
 INFO: ngram_search_fwdtree.c(1561):   307000 candidate words for entering last phone (1171/fr)
-INFO: ngram_search_fwdtree.c(1564): fwdtree 1.36 CPU 0.519 xRT
-INFO: ngram_search_fwdtree.c(1567): fwdtree 1.37 wall 0.524 xRT
+INFO: ngram_search_fwdtree.c(1564): fwdtree 1.52 CPU 0.582 xRT
+INFO: ngram_search_fwdtree.c(1567): fwdtree 1.53 wall 0.583 xRT
 go forward ten meters
 INFO: cmn_live.c(120): Update from < 41.00 -5.29 -0.12  5.09  2.48 -4.07 -1.37 -1.78 -5.08 -2.05 -6.45 -1.42  1.17 >
 INFO: cmn_live.c(138): Update to   < 41.00 -5.29 -0.12  5.09  2.48 -4.07 -1.37 -1.78 -5.08 -2.05 -6.45 -1.42  1.17 >
-INFO: ngram_search_fwdtree.c(429): TOTAL fwdtree 3.26 CPU inf xRT
-INFO: ngram_search_fwdtree.c(432): TOTAL fwdtree 3.30 wall inf xRT
+INFO: ngram_search_fwdtree.c(429): TOTAL fwdtree 3.71 CPU inf xRT
+INFO: ngram_search_fwdtree.c(432): TOTAL fwdtree 3.72 wall inf xRT

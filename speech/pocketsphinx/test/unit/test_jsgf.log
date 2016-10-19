@@ -378,7 +378,7 @@ INFO: fsg_search.c(859): 264 frames, 1123 HMMs (4/fr), 6413 senones (24/fr), 297
 INFO: fsg_search.c(869): fsg 0.04 CPU 0.015 xRT
 INFO: fsg_search.c(871): fsg 0.04 wall 0.015 xRT
 INFO: fsg_search.c(265): TOTAL fsg 0.04 CPU 0.015 xRT
-INFO: fsg_search.c(268): TOTAL fsg 0.04 wall 0.015 xRT
+INFO: fsg_search.c(268): TOTAL fsg 0.04 wall 0.016 xRT
 INFO: pocketsphinx.c(152): Parsed model-specific feature parameters from ../../model/en-us/en-us/feat.params
 Current configuration:
 [NAME]			[DEFLT]		[VALUE]
@@ -555,10 +555,10 @@ INFO: fsg_lextree.c(262): Allocated 7632 bytes (7 KiB) for lextree leafnodes
 INFO: cmn.c(133): CMN: 41.00 -5.29 -0.12  5.09  2.48 -4.07 -1.37 -1.78 -5.08 -2.05 -6.45 -1.42  1.17 
 INFO: fsg_search.c(859): 264 frames, 2591 HMMs (9/fr), 9464 senones (35/fr), 615 history entries (2/fr)
 
-INFO: fsg_search.c(869): fsg 0.04 CPU 0.015 xRT
-INFO: fsg_search.c(871): fsg 0.04 wall 0.015 xRT
-INFO: fsg_search.c(265): TOTAL fsg 0.04 CPU 0.015 xRT
-INFO: fsg_search.c(268): TOTAL fsg 0.04 wall 0.015 xRT
+INFO: fsg_search.c(869): fsg 0.04 CPU 0.017 xRT
+INFO: fsg_search.c(871): fsg 0.04 wall 0.017 xRT
+INFO: fsg_search.c(265): TOTAL fsg 0.04 CPU 0.017 xRT
+INFO: fsg_search.c(268): TOTAL fsg 0.04 wall 0.017 xRT
 INFO: pocketsphinx.c(152): Parsed model-specific feature parameters from ../../model/en-us/en-us/feat.params
 Current configuration:
 [NAME]			[DEFLT]		[VALUE]

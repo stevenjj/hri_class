@@ -46,8 +46,8 @@ INFO: test_thread.c(62): Thread 2 exited with status 0
 INFO: test_thread.c(62): Thread 3 exited with status 0
 INFO: test_thread.c(62): Thread 4 exited with status 0
 INFO: test_thread.c(62): Thread 5 exited with status 0
+INFO: test_thread.c(36): nfr = 1436
 INFO: test_thread.c(62): Thread 6 exited with status 0
 INFO: test_thread.c(62): Thread 7 exited with status 0
-INFO: test_thread.c(36): nfr = 1436
 INFO: test_thread.c(62): Thread 8 exited with status 0
 INFO: test_thread.c(62): Thread 9 exited with status 0

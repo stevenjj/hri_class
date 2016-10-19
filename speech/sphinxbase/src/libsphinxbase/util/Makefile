@@ -101,8 +101,8 @@ am__libsphinxutil_la_SOURCES_DIST = bitarr.c bitvec.c bio.c case.c \
 	genrand.c glist.c hash_table.c heap.c logmath.c mmio.c pio.c \
 	matrix.c priority_queue.c profile.c sbthread.c strfuncs.c \
 	slamch.c slapack_lite.c blas_lite.c f2c_lite.c
-#am__objects_1 = slamch.lo slapack_lite.lo \
-#	blas_lite.lo f2c_lite.lo
+am__objects_1 = slamch.lo slapack_lite.lo \
+	blas_lite.lo f2c_lite.lo
 am_libsphinxutil_la_OBJECTS = bitarr.lo bitvec.lo bio.lo case.lo \
 	ckd_alloc.lo dtoa.lo listelem_alloc.lo cmd_ln.lo err.lo \
 	filename.lo genrand.lo glist.lo hash_table.lo heap.lo \
@@ -174,13 +174,13 @@ am__define_uniq_tagged_files = \
 ETAGS = etags
 CTAGS = ctags
 DISTFILES = $(DIST_COMMON) $(DIST_SOURCES) $(TEXINFOS) $(EXTRA_DIST)
-ACLOCAL = ${SHELL} /home/stevenjj/catkin_ws/src/speech/sphinxbase/missing aclocal-1.14
+ACLOCAL = ${SHELL} /home/travis/catkin_ws/src/hri_class/speech/sphinxbase/missing aclocal-1.14
 AMTAR = $${TAR-tar}
 AM_DEFAULT_VERBOSITY = 1
 AR = ar
-AUTOCONF = ${SHELL} /home/stevenjj/catkin_ws/src/speech/sphinxbase/missing autoconf
-AUTOHEADER = ${SHELL} /home/stevenjj/catkin_ws/src/speech/sphinxbase/missing autoheader
-AUTOMAKE = ${SHELL} /home/stevenjj/catkin_ws/src/speech/sphinxbase/missing automake-1.14
+AUTOCONF = ${SHELL} /home/travis/catkin_ws/src/hri_class/speech/sphinxbase/missing autoconf
+AUTOHEADER = ${SHELL} /home/travis/catkin_ws/src/hri_class/speech/sphinxbase/missing autoheader
+AUTOMAKE = ${SHELL} /home/travis/catkin_ws/src/hri_class/speech/sphinxbase/missing automake-1.14
 AWK = mawk
 CC = gcc -std=gnu99
 CCDEPMODE = depmode=gcc3
@@ -209,12 +209,12 @@ INSTALL_STRIP_PROGRAM = $(install_sh) -c -s
 LD = /usr/bin/ld -m elf_x86_64
 LDFLAGS = 
 LIBOBJS = 
-LIBS = -lpthread -lm -lblas -llapack 
+LIBS = -lpthread -lm 
 LIBTOOL = $(SHELL) $(top_builddir)/libtool
 LIPO = 
 LN_S = ln -s
 LTLIBOBJS = 
-MAKEINFO = ${SHELL} /home/stevenjj/catkin_ws/src/speech/sphinxbase/missing makeinfo
+MAKEINFO = ${SHELL} /home/travis/catkin_ws/src/hri_class/speech/sphinxbase/missing makeinfo
 MANIFEST_TOOL = :
 MKDIR_P = /bin/mkdir -p
 NM = /usr/bin/nm -B
@@ -250,10 +250,10 @@ SWIG = /usr/bin/swig
 SWIG_LIB = /usr/share/swig2.0
 VERSION = 5prealpha
 YACC = bison -y
-abs_builddir = /home/stevenjj/catkin_ws/src/speech/sphinxbase/src/libsphinxbase/util
-abs_srcdir = /home/stevenjj/catkin_ws/src/speech/sphinxbase/src/libsphinxbase/util
-abs_top_builddir = /home/stevenjj/catkin_ws/src/speech/sphinxbase
-abs_top_srcdir = /home/stevenjj/catkin_ws/src/speech/sphinxbase
+abs_builddir = /home/travis/catkin_ws/src/hri_class/speech/sphinxbase/src/libsphinxbase/util
+abs_srcdir = /home/travis/catkin_ws/src/hri_class/speech/sphinxbase/src/libsphinxbase/util
+abs_top_builddir = /home/travis/catkin_ws/src/hri_class/speech/sphinxbase
+abs_top_srcdir = /home/travis/catkin_ws/src/hri_class/speech/sphinxbase
 ac_ct_AR = ar
 ac_ct_CC = gcc
 ac_ct_DUMPBIN = 
@@ -285,7 +285,7 @@ host_vendor = unknown
 htmldir = ${docdir}
 includedir = ${prefix}/include
 infodir = ${datarootdir}/info
-install_sh = ${SHELL} /home/stevenjj/catkin_ws/src/speech/sphinxbase/install-sh
+install_sh = ${SHELL} /home/travis/catkin_ws/src/hri_class/speech/sphinxbase/install-sh
 libdir = ${exec_prefix}/lib
 libexecdir = ${exec_prefix}/libexec
 localedir = ${datarootdir}/locale
@@ -310,11 +310,11 @@ top_build_prefix = ../../../
 top_builddir = ../../..
 top_srcdir = ../../..
 noinst_LTLIBRARIES = libsphinxutil.la
-#LAPACK_LITE_SRCS = \
-#	slamch.c \
-#	slapack_lite.c \
-#	blas_lite.c \
-#	f2c_lite.c
+LAPACK_LITE_SRCS = \
+	slamch.c \
+	slapack_lite.c \
+	blas_lite.c \
+	f2c_lite.c
 
 libsphinxutil_la_SOURCES = \
 	bitarr.c \

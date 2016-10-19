@@ -437,7 +437,7 @@ Copyright (C) 2012 Free Software Foundation, Inc.
 This config.status script is free software; the Free Software Foundation
 gives unlimited permission to copy, distribute and modify it."
 
-ac_pwd='/home/stevenjj/catkin_ws/src/speech/pocketsphinx'
+ac_pwd='/home/travis/catkin_ws/src/hri_class/speech/pocketsphinx'
 srcdir='.'
 INSTALL='/usr/bin/install -c'
 MKDIR_P='/bin/mkdir -p'
@@ -675,7 +675,7 @@ finish_cmds='PATH="\$PATH:/sbin" ldconfig -n $libdir'
 finish_eval=''
 hardcode_into_libs='yes'
 sys_lib_search_path_spec='/usr/lib/gcc/x86_64-linux-gnu/4.8 /usr/lib/x86_64-linux-gnu /usr/lib /lib/x86_64-linux-gnu /lib '
-sys_lib_dlsearch_path_spec='/lib /usr/lib /usr/lib/x86_64-linux-gnu/libfakeroot /usr/local/lib /usr/lib/vmware-tools/lib32/libvmGuestLib.so /usr/lib/vmware-tools/lib64/libvmGuestLib.so /usr/lib/vmware-tools/lib32/libvmGuestLibJava.so /usr/lib/vmware-tools/lib64/libvmGuestLibJava.so /usr/lib/vmware-tools/lib32/libDeployPkg.so /usr/lib/vmware-tools/lib64/libDeployPkg.so /lib/x86_64-linux-gnu /usr/lib/x86_64-linux-gnu /usr/lib/x86_64-linux-gnu/mesa-egl /usr/lib/x86_64-linux-gnu/mesa '
+sys_lib_dlsearch_path_spec='/lib /usr/lib /usr/lib/x86_64-linux-gnu/libfakeroot /usr/local/lib /lib/x86_64-linux-gnu /usr/lib/x86_64-linux-gnu /usr/lib/x86_64-linux-gnu/mesa-egl /usr/lib/x86_64-linux-gnu/mesa '
 hardcode_action='immediate'
 enable_dlopen='unknown'
 enable_dlopen_self='unknown'
@@ -833,7 +833,7 @@ S["am__EXEEXT_FALSE"]=""
 S["am__EXEEXT_TRUE"]="#"
 S["LTLIBOBJS"]=""
 S["LIBOBJS"]=""
-S["SPHINXBASE_SWIG"]="/home/stevenjj/catkin_ws/src/speech/pocketsphinx/../sphinxbase/swig"
+S["SPHINXBASE_SWIG"]="/home/travis/catkin_ws/src/hri_class/speech/pocketsphinx/../sphinxbase/swig"
 S["SPHINXBASE_LIBS"]=""
 S["SPHINXBASE_CFLAGS"]=""
 S["GST_PLUGIN_LDFLAGS"]="-module -avoid-version -export-symbols-regex _*\\(gst_\\|Gst\\|GST_\\).*"
@@ -903,10 +903,10 @@ S["DEPDIR"]=".deps"
 S["OBJEXT"]="o"
 S["EXEEXT"]=""
 S["ac_ct_CC"]="gcc"
-S["CPPFLAGS"]=" -I/home/stevenjj/catkin_ws/src/speech/pocketsphinx/../sphinxbase/include -I/home/stevenjj/catkin_ws/src/speech/pocketsphinx/../sphinxbase/include/s"\
-"phinxbase"
-S["LDFLAGS"]=" -L/home/stevenjj/catkin_ws/src/speech/pocketsphinx/../sphinxbase/lib -L/home/stevenjj/catkin_ws/src/speech/pocketsphinx/../sphinxbase/src/libsphinx"\
-"ad -L/home/stevenjj/catkin_ws/src/speech/pocketsphinx/../sphinxbase/src/libsphinxbase"
+S["CPPFLAGS"]=" -I/home/travis/catkin_ws/src/hri_class/speech/pocketsphinx/../sphinxbase/include -I/home/travis/catkin_ws/src/hri_class/speech/pocketsphinx/../sphi"\
+"nxbase/include/sphinxbase"
+S["LDFLAGS"]=" -L/home/travis/catkin_ws/src/hri_class/speech/pocketsphinx/../sphinxbase/lib -L/home/travis/catkin_ws/src/hri_class/speech/pocketsphinx/../sphinxba"\
+"se/src/libsphinxad -L/home/travis/catkin_ws/src/hri_class/speech/pocketsphinx/../sphinxbase/src/libsphinxbase"
 S["CFLAGS"]="-g -O2 -Wall"
 S["CC"]="gcc"
 S["host_os"]="linux-gnu"
@@ -931,12 +931,12 @@ S["mkdir_p"]="$(MKDIR_P)"
 S["MKDIR_P"]="/bin/mkdir -p"
 S["INSTALL_STRIP_PROGRAM"]="$(install_sh) -c -s"
 S["STRIP"]="strip"
-S["install_sh"]="${SHELL} /home/stevenjj/catkin_ws/src/speech/pocketsphinx/install-sh"
-S["MAKEINFO"]="${SHELL} /home/stevenjj/catkin_ws/src/speech/pocketsphinx/missing makeinfo"
-S["AUTOHEADER"]="${SHELL} /home/stevenjj/catkin_ws/src/speech/pocketsphinx/missing autoheader"
-S["AUTOMAKE"]="${SHELL} /home/stevenjj/catkin_ws/src/speech/pocketsphinx/missing automake-1.14"
-S["AUTOCONF"]="${SHELL} /home/stevenjj/catkin_ws/src/speech/pocketsphinx/missing autoconf"
-S["ACLOCAL"]="${SHELL} /home/stevenjj/catkin_ws/src/speech/pocketsphinx/missing aclocal-1.14"
+S["install_sh"]="${SHELL} /home/travis/catkin_ws/src/hri_class/speech/pocketsphinx/install-sh"
+S["MAKEINFO"]="${SHELL} /home/travis/catkin_ws/src/hri_class/speech/pocketsphinx/missing makeinfo"
+S["AUTOHEADER"]="${SHELL} /home/travis/catkin_ws/src/hri_class/speech/pocketsphinx/missing autoheader"
+S["AUTOMAKE"]="${SHELL} /home/travis/catkin_ws/src/hri_class/speech/pocketsphinx/missing automake-1.14"
+S["AUTOCONF"]="${SHELL} /home/travis/catkin_ws/src/hri_class/speech/pocketsphinx/missing autoconf"
+S["ACLOCAL"]="${SHELL} /home/travis/catkin_ws/src/hri_class/speech/pocketsphinx/missing aclocal-1.14"
 S["VERSION"]="5prealpha"
 S["PACKAGE"]="pocketsphinx"
 S["CYGPATH_W"]="echo"

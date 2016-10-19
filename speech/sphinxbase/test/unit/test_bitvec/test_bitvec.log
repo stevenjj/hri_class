@@ -1,4 +1,4 @@
-1000000 * 199 bitvec_count_set in 0.07 sec
-50000 * 1314 bitvec_set in 0.10 sec
+1000000 * 199 bitvec_count_set in 0.09 sec
+50000 * 1314 bitvec_set in 0.09 sec
 Bits set 6
 Bits set after realloc 6

@@ -155,29 +155,29 @@ INFO: allphone_search.c(309): 29324 nodes, 1958591 links
 INFO: allphone_search.c(603): Allphone(beam: -450, pbeam: -225)
 INFO: cmn.c(133): CMN: 41.00 -5.29 -0.12  5.09  2.48 -4.07 -1.37 -1.78 -5.08 -2.05 -6.45 -1.42  1.17 
 INFO: allphone_search.c(849): 264 frames, 977158 HMMs (3701/fr), 526271 senones (1993/fr), 83962 history entries (318/fr)
-INFO: allphone_search.c(862): allphone 1.38 CPU 0.519 xRT
-INFO: allphone_search.c(864): allphone 1.40 wall 0.528 xRT
+INFO: allphone_search.c(862): allphone 1.39 CPU 0.525 xRT
+INFO: allphone_search.c(864): allphone 1.40 wall 0.527 xRT
 INFO: allphone_search.c(907): Hyp: SIL G OW F AO R W ER D T AE N M IY IH ZH ER Z S V SIL
 INFO: cmn_live.c(120): Update from < 41.00 -5.29 -0.12  5.09  2.48 -4.07 -1.37 -1.78 -5.08 -2.05 -6.45 -1.42  1.17 >
 INFO: cmn_live.c(138): Update to   < 43.59 -4.53  0.26  7.00  3.63 -4.94 -2.14 -2.62 -6.06 -1.34 -7.24 -1.88  0.48 >
 INFO: allphone_search.c(849): 223 frames, 803155 HMMs (3601/fr), 444542 senones (1993/fr), 69971 history entries (313/fr)
-INFO: allphone_search.c(862): allphone 1.12 CPU 0.500 xRT
-INFO: allphone_search.c(864): allphone 1.13 wall 0.505 xRT
+INFO: allphone_search.c(862): allphone 1.16 CPU 0.518 xRT
+INFO: allphone_search.c(864): allphone 1.16 wall 0.519 xRT
 INFO: allphone_search.c(907): Hyp: SIL G OW F AO R W ER D T AE N M IY IH ZH ER Z S V SIL
 INFO: cmn_live.c(120): Update from < 43.59 -4.53  0.26  7.00  3.63 -4.94 -2.14 -2.62 -6.06 -1.34 -7.24 -1.88  0.48 >
 INFO: cmn_live.c(138): Update to   < 43.59 -4.53  0.26  7.00  3.63 -4.94 -2.14 -2.62 -6.06 -1.34 -7.24 -1.88  0.48 >
 INFO: allphone_search.c(849): 223 frames, 790735 HMMs (3545/fr), 440371 senones (1974/fr), 68694 history entries (308/fr)
-INFO: allphone_search.c(862): allphone 1.10 CPU 0.493 xRT
-INFO: allphone_search.c(864): allphone 1.12 wall 0.499 xRT
+INFO: allphone_search.c(862): allphone 1.13 CPU 0.505 xRT
+INFO: allphone_search.c(864): allphone 1.13 wall 0.505 xRT
 INFO: allphone_search.c(907): Hyp: SIL G OW F AO R W ER D T AE N M IY IH ZH ER Z S V SIL
-INFO: allphone_search.c(644): TOTAL allphone 3.60 CPU 0.507 xRT
-INFO: allphone_search.c(647): TOTAL allphone 3.65 wall 0.514 xRT
+INFO: allphone_search.c(644): TOTAL allphone 3.68 CPU 0.519 xRT
+INFO: allphone_search.c(647): TOTAL allphone 3.69 wall 0.520 xRT
 ALLPHONE: SIL G OW F AO R W ER D T AE N M IY IH ZH ER Z S V SIL (-6568, 0)
-2.64 seconds speech, 1.38 seconds CPU, 1.40 seconds wall
-0.52 xRT (CPU), 0.53 xRT (elapsed)
+2.64 seconds speech, 1.40 seconds CPU, 1.40 seconds wall
+0.53 xRT (CPU), 0.53 xRT (elapsed)
 ALLPHONE: SIL G OW F AO R W ER D T AE N M IY IH ZH ER Z S V SIL (-6035, 0)
-2.23 seconds speech, 1.12 seconds CPU, 1.13 seconds wall
-0.50 xRT (CPU), 0.51 xRT (elapsed)
+2.23 seconds speech, 1.16 seconds CPU, 1.17 seconds wall
+0.52 xRT (CPU), 0.52 xRT (elapsed)
 ALLPHONE: SIL G OW F AO R W ER D T AE N M IY IH ZH ER Z S V SIL (-6035, 0)
 SIL (318:325) P(w|o) = 1.000000 ascr = -132 lscr = 0 lback = 0 post=0
 G (326:333) P(w|o) = 1.000000 ascr = -176 lscr = -103 lback = 0 post=0
@@ -200,7 +200,7 @@ Z (470:475) P(w|o) = 1.000000 ascr = -121 lscr = -129 lback = 0 post=0
 S (476:489) P(w|o) = 1.000000 ascr = -108 lscr = -185 lback = 0 post=0
 V (490:495) P(w|o) = 1.000000 ascr = -229 lscr = -133 lback = 0 post=0
 SIL (496:540) P(w|o) = 1.000000 ascr = -84 lscr = -154 lback = 0 post=0
-2.23 seconds speech, 1.10 seconds CPU, 1.12 seconds wall
-0.50 xRT (CPU), 0.50 xRT (elapsed)
-TOTAL: 7.10 seconds speech, 3.60 seconds CPU, 3.65 seconds wall
-TOTAL: 0.51 xRT (CPU), 0.51 xRT (elapsed)
+2.23 seconds speech, 1.13 seconds CPU, 1.13 seconds wall
+0.51 xRT (CPU), 0.51 xRT (elapsed)
+TOTAL: 7.10 seconds speech, 3.69 seconds CPU, 3.70 seconds wall
+TOTAL: 0.52 xRT (CPU), 0.52 xRT (elapsed)

@@ -163,8 +163,8 @@ INFO: ngram_search_fwdtree.c(1552):   890368 senones evaluated (3398/fr)
 INFO: ngram_search_fwdtree.c(1556):  3743893 channels searched (14289/fr), 172057 1st, 122909 last
 INFO: ngram_search_fwdtree.c(1559):    10222 words for which last channels evaluated (39/fr)
 INFO: ngram_search_fwdtree.c(1561):   307000 candidate words for entering last phone (1171/fr)
-INFO: ngram_search_fwdtree.c(1564): fwdtree 2.42 CPU 0.922 xRT
-INFO: ngram_search_fwdtree.c(1567): fwdtree 2.50 wall 0.955 xRT
+INFO: ngram_search_fwdtree.c(1564): fwdtree 2.31 CPU 0.881 xRT
+INFO: ngram_search_fwdtree.c(1567): fwdtree 2.31 wall 0.883 xRT
 INFO: cmn_live.c(120): Update from < 41.00 -5.29 -0.12  5.09  2.48 -4.07 -1.37 -1.78 -5.08 -2.05 -6.45 -1.42  1.17 >
 INFO: cmn_live.c(138): Update to   < 41.00 -5.29 -0.12  5.09  2.48 -4.07 -1.37 -1.78 -5.08 -2.05 -6.45 -1.42  1.17 >
 INFO: ngram_search.c(1250): lattice start node <s>.0 end node </s>.212
@@ -176,8 +176,8 @@ INFO: ps_lattice.c(1384): Normalizer P(O) = alpha(</s>:212:260) = -563758
 INFO: ps_lattice.c(1441): Joint P(O,S) = -590659 P(S|O) = -26901
 INFO: test_posterior.c(119): Sum of final alphas+betas = -563758
 INFO: test_posterior.c(120): Sum of initial alphas+betas = -563757
-INFO: ngram_search_fwdtree.c(429): TOTAL fwdtree 2.42 CPU inf xRT
-INFO: ngram_search_fwdtree.c(432): TOTAL fwdtree 2.50 wall inf xRT
+INFO: ngram_search_fwdtree.c(429): TOTAL fwdtree 2.31 CPU inf xRT
+INFO: ngram_search_fwdtree.c(432): TOTAL fwdtree 2.31 wall inf xRT
 INFO: ngram_search.c(303): TOTAL bestpath 0.00 CPU -nan xRT
 INFO: ngram_search.c(306): TOTAL bestpath 0.00 wall -nan xRT
 FWDTREE: go forward ten meters

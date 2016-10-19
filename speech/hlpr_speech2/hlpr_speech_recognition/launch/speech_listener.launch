@@ -3,8 +3,11 @@
 
    <!-- Arguments that need to be passed into this launch file -->
    <!-- This file is not intended to called on its own at any time -->
-   <arg name="yaml_list" />
-   <arg name="config_file" />
+  <!-- <arg name="yaml_list" /> -->
+   <!-- <arg name="config_file" />-->
+
+   <arg name="yaml_list" default="$(find hlpr_speech_recognition)/data/kps.yaml" />
+   <arg name="config_file" default="$(find hlpr_speech_recognition)/config/speech.yaml" />
 
    <!-- Load parameters for speech -->
    <rosparam command="load" file="$(arg config_file)" />

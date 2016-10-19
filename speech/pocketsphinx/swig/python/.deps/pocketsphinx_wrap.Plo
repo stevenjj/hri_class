@@ -108,27 +108,27 @@ pocketsphinx_wrap.lo: pocketsphinx_wrap.c /usr/include/stdc-predef.h \
  /usr/include/x86_64-linux-gnu/bits/setjmp.h \
  /usr/include/x86_64-linux-gnu/bits/setjmp2.h \
  ../../include/pocketsphinx.h \
- /home/stevenjj/catkin_ws/src/speech/pocketsphinx/../sphinxbase/include/sphinxbase/cmd_ln.h \
- /home/stevenjj/catkin_ws/src/speech/pocketsphinx/../sphinxbase/include/sphinxbase/sphinxbase_export.h \
- /home/stevenjj/catkin_ws/src/speech/pocketsphinx/../sphinxbase/include/sphinxbase/prim_type.h \
- /home/stevenjj/catkin_ws/src/speech/pocketsphinx/../sphinxbase/include/sphinx_config.h \
- /home/stevenjj/catkin_ws/src/speech/pocketsphinx/../sphinxbase/include/sphinxbase/logmath.h \
- /home/stevenjj/catkin_ws/src/speech/pocketsphinx/../sphinxbase/include/sphinxbase/fe.h \
- /home/stevenjj/catkin_ws/src/speech/pocketsphinx/../sphinxbase/include/sphinxbase/fixpoint.h \
- /home/stevenjj/catkin_ws/src/speech/pocketsphinx/../sphinxbase/include/sphinxbase/feat.h \
- /home/stevenjj/catkin_ws/src/speech/pocketsphinx/../sphinxbase/include/sphinxbase/cmn.h \
- /home/stevenjj/catkin_ws/src/speech/pocketsphinx/../sphinxbase/include/sphinxbase/agc.h \
+ /home/travis/catkin_ws/src/hri_class/speech/pocketsphinx/../sphinxbase/include/sphinxbase/cmd_ln.h \
+ /home/travis/catkin_ws/src/hri_class/speech/pocketsphinx/../sphinxbase/include/sphinxbase/sphinxbase_export.h \
+ /home/travis/catkin_ws/src/hri_class/speech/pocketsphinx/../sphinxbase/include/sphinxbase/prim_type.h \
+ /home/travis/catkin_ws/src/hri_class/speech/pocketsphinx/../sphinxbase/include/sphinx_config.h \
+ /home/travis/catkin_ws/src/hri_class/speech/pocketsphinx/../sphinxbase/include/sphinxbase/logmath.h \
+ /home/travis/catkin_ws/src/hri_class/speech/pocketsphinx/../sphinxbase/include/sphinxbase/fe.h \
+ /home/travis/catkin_ws/src/hri_class/speech/pocketsphinx/../sphinxbase/include/sphinxbase/fixpoint.h \
+ /home/travis/catkin_ws/src/hri_class/speech/pocketsphinx/../sphinxbase/include/sphinxbase/feat.h \
+ /home/travis/catkin_ws/src/hri_class/speech/pocketsphinx/../sphinxbase/include/sphinxbase/cmn.h \
+ /home/travis/catkin_ws/src/hri_class/speech/pocketsphinx/../sphinxbase/include/sphinxbase/agc.h \
  ../../include/pocketsphinx_export.h ../../include/cmdln_macro.h \
  ../../include/ps_lattice.h \
- /home/stevenjj/catkin_ws/src/speech/pocketsphinx/../sphinxbase/include/sphinxbase/ngram_model.h \
- /home/stevenjj/catkin_ws/src/speech/pocketsphinx/../sphinxbase/include/sphinxbase/mmio.h \
+ /home/travis/catkin_ws/src/hri_class/speech/pocketsphinx/../sphinxbase/include/sphinxbase/ngram_model.h \
+ /home/travis/catkin_ws/src/hri_class/speech/pocketsphinx/../sphinxbase/include/sphinxbase/mmio.h \
  ../../include/ps_mllr.h ../../include/ps_search.h \
- /home/stevenjj/catkin_ws/src/speech/pocketsphinx/../sphinxbase/include/sphinxbase/fsg_model.h \
- /home/stevenjj/catkin_ws/src/speech/pocketsphinx/../sphinxbase/include/sphinxbase/glist.h \
- /home/stevenjj/catkin_ws/src/speech/pocketsphinx/../sphinxbase/include/sphinxbase/bitvec.h \
- /home/stevenjj/catkin_ws/src/speech/pocketsphinx/../sphinxbase/include/sphinxbase/ckd_alloc.h \
- /home/stevenjj/catkin_ws/src/speech/pocketsphinx/../sphinxbase/include/sphinxbase/hash_table.h \
- /home/stevenjj/catkin_ws/src/speech/pocketsphinx/../sphinxbase/include/sphinxbase/listelem_alloc.h \
+ /home/travis/catkin_ws/src/hri_class/speech/pocketsphinx/../sphinxbase/include/sphinxbase/fsg_model.h \
+ /home/travis/catkin_ws/src/hri_class/speech/pocketsphinx/../sphinxbase/include/sphinxbase/glist.h \
+ /home/travis/catkin_ws/src/hri_class/speech/pocketsphinx/../sphinxbase/include/sphinxbase/bitvec.h \
+ /home/travis/catkin_ws/src/hri_class/speech/pocketsphinx/../sphinxbase/include/sphinxbase/ckd_alloc.h \
+ /home/travis/catkin_ws/src/hri_class/speech/pocketsphinx/../sphinxbase/include/sphinxbase/hash_table.h \
+ /home/travis/catkin_ws/src/hri_class/speech/pocketsphinx/../sphinxbase/include/sphinxbase/listelem_alloc.h \
  /usr/lib/gcc/x86_64-linux-gnu/4.8/include/float.h
 
 /usr/include/stdc-predef.h:
@@ -445,25 +445,25 @@ pocketsphinx_wrap.lo: pocketsphinx_wrap.c /usr/include/stdc-predef.h \
 
 ../../include/pocketsphinx.h:
 
-/home/stevenjj/catkin_ws/src/speech/pocketsphinx/../sphinxbase/include/sphinxbase/cmd_ln.h:
+/home/travis/catkin_ws/src/hri_class/speech/pocketsphinx/../sphinxbase/include/sphinxbase/cmd_ln.h:
 
-/home/stevenjj/catkin_ws/src/speech/pocketsphinx/../sphinxbase/include/sphinxbase/sphinxbase_export.h:
+/home/travis/catkin_ws/src/hri_class/speech/pocketsphinx/../sphinxbase/include/sphinxbase/sphinxbase_export.h:
 
-/home/stevenjj/catkin_ws/src/speech/pocketsphinx/../sphinxbase/include/sphinxbase/prim_type.h:
+/home/travis/catkin_ws/src/hri_class/speech/pocketsphinx/../sphinxbase/include/sphinxbase/prim_type.h:
 
-/home/stevenjj/catkin_ws/src/speech/pocketsphinx/../sphinxbase/include/sphinx_config.h:
+/home/travis/catkin_ws/src/hri_class/speech/pocketsphinx/../sphinxbase/include/sphinx_config.h:
 
-/home/stevenjj/catkin_ws/src/speech/pocketsphinx/../sphinxbase/include/sphinxbase/logmath.h:
+/home/travis/catkin_ws/src/hri_class/speech/pocketsphinx/../sphinxbase/include/sphinxbase/logmath.h:
 
-/home/stevenjj/catkin_ws/src/speech/pocketsphinx/../sphinxbase/include/sphinxbase/fe.h:
+/home/travis/catkin_ws/src/hri_class/speech/pocketsphinx/../sphinxbase/include/sphinxbase/fe.h:
 
-/home/stevenjj/catkin_ws/src/speech/pocketsphinx/../sphinxbase/include/sphinxbase/fixpoint.h:
+/home/travis/catkin_ws/src/hri_class/speech/pocketsphinx/../sphinxbase/include/sphinxbase/fixpoint.h:
 
-/home/stevenjj/catkin_ws/src/speech/pocketsphinx/../sphinxbase/include/sphinxbase/feat.h:
+/home/travis/catkin_ws/src/hri_class/speech/pocketsphinx/../sphinxbase/include/sphinxbase/feat.h:
 
-/home/stevenjj/catkin_ws/src/speech/pocketsphinx/../sphinxbase/include/sphinxbase/cmn.h:
+/home/travis/catkin_ws/src/hri_class/speech/pocketsphinx/../sphinxbase/include/sphinxbase/cmn.h:
 
-/home/stevenjj/catkin_ws/src/speech/pocketsphinx/../sphinxbase/include/sphinxbase/agc.h:
+/home/travis/catkin_ws/src/hri_class/speech/pocketsphinx/../sphinxbase/include/sphinxbase/agc.h:
 
 ../../include/pocketsphinx_export.h:
 
@@ -471,24 +471,24 @@ pocketsphinx_wrap.lo: pocketsphinx_wrap.c /usr/include/stdc-predef.h \
 
 ../../include/ps_lattice.h:
 
-/home/stevenjj/catkin_ws/src/speech/pocketsphinx/../sphinxbase/include/sphinxbase/ngram_model.h:
+/home/travis/catkin_ws/src/hri_class/speech/pocketsphinx/../sphinxbase/include/sphinxbase/ngram_model.h:
 
-/home/stevenjj/catkin_ws/src/speech/pocketsphinx/../sphinxbase/include/sphinxbase/mmio.h:
+/home/travis/catkin_ws/src/hri_class/speech/pocketsphinx/../sphinxbase/include/sphinxbase/mmio.h:
 
 ../../include/ps_mllr.h:
 
 ../../include/ps_search.h:
 
-/home/stevenjj/catkin_ws/src/speech/pocketsphinx/../sphinxbase/include/sphinxbase/fsg_model.h:
+/home/travis/catkin_ws/src/hri_class/speech/pocketsphinx/../sphinxbase/include/sphinxbase/fsg_model.h:
 
-/home/stevenjj/catkin_ws/src/speech/pocketsphinx/../sphinxbase/include/sphinxbase/glist.h:
+/home/travis/catkin_ws/src/hri_class/speech/pocketsphinx/../sphinxbase/include/sphinxbase/glist.h:
 
-/home/stevenjj/catkin_ws/src/speech/pocketsphinx/../sphinxbase/include/sphinxbase/bitvec.h:
+/home/travis/catkin_ws/src/hri_class/speech/pocketsphinx/../sphinxbase/include/sphinxbase/bitvec.h:
 
-/home/stevenjj/catkin_ws/src/speech/pocketsphinx/../sphinxbase/include/sphinxbase/ckd_alloc.h:
+/home/travis/catkin_ws/src/hri_class/speech/pocketsphinx/../sphinxbase/include/sphinxbase/ckd_alloc.h:
 
-/home/stevenjj/catkin_ws/src/speech/pocketsphinx/../sphinxbase/include/sphinxbase/hash_table.h:
+/home/travis/catkin_ws/src/hri_class/speech/pocketsphinx/../sphinxbase/include/sphinxbase/hash_table.h:
 
-/home/stevenjj/catkin_ws/src/speech/pocketsphinx/../sphinxbase/include/sphinxbase/listelem_alloc.h:
+/home/travis/catkin_ws/src/hri_class/speech/pocketsphinx/../sphinxbase/include/sphinxbase/listelem_alloc.h:
 
 /usr/lib/gcc/x86_64-linux-gnu/4.8/include/float.h:

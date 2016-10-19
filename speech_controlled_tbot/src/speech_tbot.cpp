@@ -5,7 +5,7 @@
 #include "turtlesim/SetPen.h"
 #include "hlpr_speech_msgs/StampedString.h"
 
-#define FWD_VEL 1
+#define FWD_VEL 0.5
 #define TURN_VEL 0.5
 
 class TurtleNode{
@@ -31,7 +31,7 @@ TurtleNode::~TurtleNode(){}
 void TurtleNode::speech_callback(const hlpr_speech_msgs::StampedStringConstPtr &msg){
 	geometry_msgs::Twist vel_msg;
 
-	std::string forward_command("FORWARD");
+	std::string forward_command("GO STRAIGHT");
 	std::string turn_left_command("LEFT");
 	std::string turn_right_command("RIGHT");		
 
