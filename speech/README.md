@@ -67,3 +67,12 @@ By default, the node will launch a GUI that allows voice commands to be simulate
 You may have an error because you are missing pyaudio. If so, simply sudo apt-get install python-pyaudio and try again.
 
 Happy speaking!
+
+
+I had to do the extra steps as well
+ 1177  sudo apt-get install python-pyaudio
+ 1235  sudo apt-get install pulseaudio
+ 1236  sudo apt-get install libpulse-dev
+ 1237  sudo apt-get install osspd
+ 1245  sudo apt-get install espeak
+ 1246  sudo apt-get install python-espeak
