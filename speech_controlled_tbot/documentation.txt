@@ -22,5 +22,13 @@ While in a noisy environment the speech regonition did not work very well, the s
 
 Please see the "speech_controlled_turtle.ogv" turtle video to visualize the turtle as I give speech commands
 
+To run the program, please make sure you are using the speech/hlpr_speech2 package found in this submission. 
+
+$ roslaunch hlpr_speech_recognition speech_rec.launch
+$ rosrun speech_controlled_tbot speech_tbot_node
+$ rosrun turtlesim turtlesim_node
+
+
+
 Steven Jens Jorgensen
 smj2444
